@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starting [ROAM]</title>
+
+    <link rel="icon" href="favicon.ico">
+    <!-- CSS: Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--<link href="css/glyphicons.css" rel="stylesheet">-->
+    <!-- CSS: Kendo -->
+    <link href="css/kendo/kendo.common.min.css" rel="stylesheet">
+    <link href="css/kendo/kendo.rtl.min.css" rel="stylesheet">
+
+    <!-- CSS: App Styles -->
+    <link href="css/icons.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/multiselect.css" rel="stylesheet">
+    <link href="css/widget-catalog.css" rel="stylesheet">
+    <link href="css/jquery.nouislider.css" rel="stylesheet">
+    <link href="css/jquery.nouislider.pips.css" rel="stylesheet">
+    <link href="css/maps.css" rel="stylesheet">
+    <link href="dist/theme-default.css" rel="stylesheet" id="theme">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8+9 support of HTML5 elements and media queries -->
+    <!--[if lt IE 10]>
+    <script src="js/lib/html5shiv.js"></script>
+    <script src="js/lib/respond.min.js"></script>
+    <script src="js/lib/array.generics.min.js"></script>
+    <script src="js/lib/date.polyfill.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="content-wrap">
+
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="row" id="menuBar">
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" data-action="home"></a>
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li id="menu-menu" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-th-list"></span>
+                                <span class="menu-item-text" data-phrase="Menu">Menu</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline megamenu" id="navigation-menu" role="menu">
+                            </ul>
+                        </li>
+                        <li id="menu-alarms" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-bell"></span>
+                                <span class="menu-item-text" data-phrase="Alarms">Alarms</span>
+                                <b class="caret"></b>
+                                <span class="badge"></span>
+                            </a>
+                            <ul class="dropdown-menu list-inline alarmsmenu" role="menu">
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li id="menu-notifications" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-comment"></span>
+                                <span class="menu-item-text" data-phrase="Notifications">Notifications</span>
+                                <b class="caret"></b>
+                                <span class="badge"></span>
+                            </a>
+                            <ul class="dropdown-menu list-inline notificationsmenu" role="menu">
+                                <li></li>
+                            </ul>
+                        </li>
+
+                        <li id="menu-layout" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-credit-card"></span>
+                                <span class="menu-item-text" data-phrase="Panes">Panes</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline panesmenu" role="menu">
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu1 selected" data-layout="1"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu2" data-layout="2"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu3" data-layout="3"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu4" data-layout="4"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu5" data-layout="5"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu6" data-layout="6"></div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="search">
+                            <span class="glyphicon glyphicon-search" title="Search" data-toggle="tooltip"></span>
+                            <input id="search-main" type="text" value="" placeholder="Asset, group, customer" />
+                            <span class="glyphicon glyphicon-remove" title="Clear search" data-toggle="tooltip"></span>
+
+                            <div class="search-results hidden">
+                                <table class="search-dropdown" id="search-results">
+                                </table>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#" data-action="user-settings" data-toggle="tooltip" title="My Profile">
+                                <span class="welcome-text" data-phrase="Hello">Hello</span>,
+                                <span class="welcome-username" id="userName"></span>
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle menu-settings" data-toggle="dropdown" title="Settings">
+                                <span class="glyphicon glyphicon-cog"></span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline settingsmenu" role="menu">
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <div class="menu-column-header-icon settingsmenu">
+                                                <div class="menu-column-header-text" data-phrase="Settings">Settings
+                                                </div>
+                                            </div>
+                                            <ul class="menu-column-content">
+                                                <li>
+                                                    <a href="#" class="item" data-action="user-settings"
+                                                       data-phrase="My Profile">My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="item" data-action="widget-catalog"
+                                                       data-phrase="Widget Catalog">Widget Catalog</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle menu-helpmenu" data-toggle="dropdown"
+                               title="Help & Training">
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline helpmenu">
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <div class="menu-column-header-icon helpmenu">
+                                                <div class="menu-column-header-text" data-phrase="Help & Training">Help
+                                                    & Training
+                                                </div>
+                                            </div>
+                                            <ul class="menu-column-content" id="navigation-help">
+                                                <li>
+                                                    <a href="../service/help/index.html" target="_blank" class="item" data-action="main-help"
+                                                       data-phrase="Tools & Instructions">Tools & Instructions</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="item" data-action="main-legal-notice"
+                                                       data-phrase="Legal Notice">Legal Notice</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" data-action="logout" title="Logout" data-toggle="tooltip">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ALARMS - Start -->
+            <div id="alarmBar" class="row">
+                <div class="alerts">
+                    <ul class="nav nav-pills alarm-items">
+                        <li id="alarm-ticker"></li>
+                    </ul>
+                </div>
+                <div class="alarmbar-collapse">
+                    <div class="alarmbar-collapse-background"></div>
+                    <a class="alarmbar-collapse-button">
+                        <span class="icon-collapse"></span>
+                    </a>
+                </div>
+            </div>
+            <!-- ALARMS - End -->
+
+        </div>
+    </div>
+
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!--navigationArea-->
+            <div class="col-sm-2" id="navigationArea" data-location="LEFT">
+                <!-- Navigation tree -->
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-header-tools">
+                        <span class="glyphicon glyphicon-minus" title="Minimize widget" data-toggle="tooltip"
+                              role="button" data-action="widget-toggle-minimize"></span>
+                        </div>
+                        <img class="widget-header-icon" alt="widget header icon" src="images/icons/32px/Content-34.png">
+                        <span class="widget-header-title" data-phrase="Explorer">Explorer</span>
+                    </div>
+                    <div class="widget-content">
+                        <div id="navigation-tree"></div>
+                    </div>
+                </div>
+
+                <!-- Favorites tree -->
+                <!--
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-header-tools">
+                            <span class="glyphicon glyphicon-minus" title="Minimize widget" data-toggle="tooltip" role="button" data-action="widget-toggle-minimize"></span>
+                        </div>
+                        <img class="widget-header-icon" alt="widget header icon" src="images/icons/32px/Status-30.png">
+                        <span class="widget-header-title" data-phrase="Favorites">Favorites</span>
+                    </div>
+                    <div class="widget-content">
+                        <div id="fav-tree-view"></div>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <div class="col-sm-7 col-sm-offset-2 draggable" id="mainArea" data-location="CENTER"></div>
+            <div class="col-sm-3 draggable" id="sideBar" data-location="RIGHT"></div>
+
+        </div>
+
+    </div>
+    <!-- End page content -->
+
+</div>
+
+<!-- BODY - End -->
+
+<!-- FOOTER - Start -->
+<div id="footer" class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".footer-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!--<a class="navbar-brand" href="#">Project name</a>-->
+    </div>
+    <div class="navbar-collapse collapse footer-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="#" data-action="home" data-phrase="Home">Home</a></li>
+            <li>
+                <a href="#" data-action="user-settings" data-phrase="My Profile">My Profile</a>
+            </li>
+            <li>
+                <a href="#" data-action="widget-catalog" data-phrase="Widget Catalog">Widget Catalog</a>
+            </li>
+            <li>
+                <a href="../service/help/index.html" target="_blank" class="title" data-action="main-help" data-phrase="Tools & Instructions">Tools & Instructions</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text" id="copyrights-text"></p></li>
+            <li>
+                <a href="#" data-action="home" class="navbar-brand footer-logo hidden-xs"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- FOOTER - End -->
+
+<!-- Insert this line above script imports  -->
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<!-- jQuery & Kendo -->
+<script>
+    var DEBUG = true;
+</script>
+<script src="js/lib/jquery-1.11.3.js"></script>
+<script src="js/lib/kendo/jszip.min.js"></script>
+
+<script src="js/lib/kendo/kendo.core.min.js"></script>
+<script src="js/lib/kendo/kendo.router.min.js"></script>
+<script src="js/lib/kendo/kendo.fx.min.js"></script>
+<script src="js/lib/kendo/kendo.userevents.min.js"></script>
+<script src="js/lib/kendo/kendo.draganddrop.min.js"></script>
+<script src="js/lib/kendo/kendo.mobile.scroller.min.js"></script>
+<script src="js/lib/kendo/kendo.data.min.js"></script>
+<script src="js/lib/kendo/kendo.popup.min.js"></script>
+<script src="js/lib/kendo/kendo.list.min.js"></script>
+<script src="js/lib/kendo/kendo.autocomplete.min.js"></script>
+<script src="js/lib/kendo/kendo.combobox.min.js"></script>
+<script src="js/lib/kendo/kendo.calendar.min.js"></script>
+<script src="js/lib/kendo/kendo.datepicker.min.js"></script>
+<script src="js/lib/kendo/kendo.timepicker.min.js"></script>
+<script src="js/lib/kendo/kendo.datetimepicker.min.js"></script>
+<script src="js/lib/kendo/kendo.dropdownlist.min.js"></script>
+<script src="js/lib/kendo/kendo.window.min.js"></script>
+<script src="js/lib/kendo/kendo.color.min.js"></script>
+<script src="js/lib/kendo/kendo.slider.min.js"></script>
+<script src="js/lib/kendo/kendo.colorpicker.min.js"></script>
+<script src="js/lib/kendo/kendo.editor.min.js"></script>
+<script src="js/lib/kendo/kendo.numerictextbox.min.js"></script>
+<script src="js/lib/kendo/kendo.validator.min.js"></script>
+<script src="js/lib/kendo/kendo.binder.min.js"></script>
+<script src="js/lib/kendo/kendo.editable.min.js"></script>
+<script src="js/lib/kendo/kendo.filtermenu.min.js"></script>
+<script src="js/lib/kendo/kendo.menu.min.js"></script>
+<script src="js/lib/kendo/kendo.columnmenu.min.js"></script>
+<script src="js/lib/kendo/kendo.groupable.min.js"></script>
+<script src="js/lib/kendo/kendo.filtercell.min.js"></script>
+<script src="js/lib/kendo/kendo.pager.min.js"></script>
+<script src="js/lib/kendo/kendo.selectable.min.js"></script>
+<script src="js/lib/kendo/kendo.reorderable.min.js"></script>
+<script src="js/lib/kendo/kendo.resizable.min.js"></script>
+<script src="js/lib/kendo/kendo.view.min.js"></script>
+<script src="js/lib/kendo/kendo.mobile.view.min.js"></script>
+<script src="js/lib/kendo/kendo.mobile.loader.min.js"></script>
+<script src="js/lib/kendo/kendo.mobile.pane.min.js"></script>
+<script src="js/lib/kendo/kendo.mobile.popover.min.js"></script>
+<script src="js/lib/kendo/kendo.mobile.shim.min.js"></script>
+<script src="js/lib/kendo/kendo.mobile.actionsheet.min.js"></script>
+<script src="js/lib/kendo/kendo.ooxml.min.js"></script>
+<script src="js/lib/kendo/kendo.excel.min.js"></script>
+<script src="js/lib/kendo/kendo.drawing.min.js"></script>
+<script src="js/lib/kendo/kendo.pdf.min.js"></script>
+<script src="js/lib/kendo/kendo.columnsorter.min.js"></script>
+<script src="js/lib/kendo/kendo.grid.min.js"></script>
+<script src="js/lib/kendo/kendo.listview.min.js"></script>
+<script src="js/lib/kendo/kendo.multiselect.min.js"></script>
+<script src="js/lib/kendo/kendo.panelbar.min.js"></script>
+<script src="js/lib/kendo/kendo.progressbar.min.js"></script>
+<script src="js/lib/kendo/kendo.splitter.min.js"></script>
+<script src="js/lib/kendo/kendo.tabstrip.min.js"></script>
+<script src="js/lib/kendo/kendo.toolbar.min.js"></script>
+<script src="js/lib/kendo/kendo.treeview.min.js"></script>
+<script src="js/lib/kendo/kendo.upload.min.js"></script>
+<script src="js/lib/kendo/kendo.dataviz.core.min.js"></script>
+<script src="js/lib/kendo/kendo.dataviz.themes.min.js"></script>
+<script src="js/lib/kendo/kendo.dataviz.chart.min.js"></script>
+<script src="js/lib/kendo/kendo.dataviz.gauge.min.js"></script>
+
+<script src="js/lib/kendo/cultures/kendo.culture.en.min.js"></script>
+
+<!-- other libs -->
+<script src="js/lib/lodash.js"></script>
+<script src="js/lib/stampit.js"></script>
+<script src="js/lib/cornify.js"></script>
+<script src="js/lib/jquery.easteregg.js"></script>
+<script src="js/lib/hshake.js"></script>
+
+<!-- jQuery UI sortable -->
+<script src="js/lib/jquery-ui.js"></script>
+
+<!-- jQuery Plugins -->
+<script src="js/lib/jquery.cookie.js"></script>
+<script src="js/lib/jquery.mousewheel.js"></script>
+<!--<script src="js/lib/jquery.marquee.js"></script>-->
+<script src="js/lib/jquery.nouislider.all.js"></script>
+<script src="js/lib/jquery.scrollintoview.js"></script>
+
+<!-- Bootstrap -->
+<script src="js/lib/bootstrap.js"></script>
+
+<!-- Misc -->
+<script src="js/lib/kendo.menu.ex.js"></script>
+
+<!-- App -->
+<script src="js/app.js"></script>
+
+<!-- Utils -->
+<script src="js/utils/application.js"></script>
+<script src="js/utils/cmd.js"></script>
+<script src="js/utils/dialog.js"></script>
+<script src="js/utils/i18n.js"></script>
+<script src="js/utils/log.js"></script>
+<script src="js/utils/router.js"></script>
+<script src="js/utils/user.js"></script>
+<script src="js/utils/util.js"></script>
+
+<!-- Components -->
+<script src="js/components/config.js"></script>
+<script src="js/components/chart-base.js"></script>
+<script src="js/components/chart-default.js"></script>
+<script src="js/components/chart-donut.js"></script>
+<script src="js/components/chart-line.js"></script>
+<script src="js/components/chart-pie.js"></script>
+<script src="js/components/chart-gauge.js"></script>
+<script src="js/components/field-base.js"></script>
+<script src="js/components/field-checkbox.js"></script>
+<script src="js/components/field-datelist.js"></script>
+<script src="js/components/field-datepicker.js"></script>
+<script src="js/components/field-dropdown.js"></script>
+<script src="js/components/field-durationpicker.js"></script>
+<script src="js/components/field-editor.js"></script>
+<script src="js/components/field-fileupload.js"></script>
+<script src="js/components/field-input.js"></script>
+<script src="js/components/field-muliplaceholder.js"></script>
+<script src="js/components/field-mutiselect.js"></script>
+<script src="js/components/field-multiset.js"></script>
+<script src="js/components/field-numeric.js"></script>
+<script src="js/components/field-password.js"></script>
+<script src="js/components/field-timepicker.js"></script>
+<script src="js/components/field-tripstages.js"></script>
+<script src="js/components/hierarchyselection.js"></script>
+<script src="js/components/chart-capacity.js"></script>
+
+<!-- UI -->
+<script src="js/ui/multiselect.js"></script>
+<script src="js/ui/hierarchy-selection.js"></script>
+<script src="js/ui/navigationtreeview.js"></script>
+<script src="js/ui/selectiontree.js"></script>
+<script src="js/ui/field.js"></script>
+<script src="js/ui/login.js"></script>
+<script src="js/ui/menu-base.js"></script>
+<script src="js/ui/menu.js"></script>
+<script src="js/ui/toast.js"></script>
+<script src="js/ui/widgetpanel.js"></script>
+<script src="js/ui/notification.js"></script>
+<script src="js/ui/alarm.js"></script>
+<script src="js/ui/aboutwindow.js"></script>
+
+<!-- Wizards -->
+<script src="js/ui/wizard-base.js"></script>
+<script src="js/ui/wizard-administration.js"></script>
+<script src="js/ui/wizard-batchupload.js"></script>
+<script src="js/ui/wizard-report.js"></script>
+<script src="js/ui/wizard-widget.js"></script>
+<script src="js/ui/widgetcatalog.js"></script>
+
+<!-- Widgets -->
+<script src="js/widget/base.js"></script>
+<script src="js/widget/assetcommand.js"></script>
+<script src="js/widget/dashboard.js"></script>
+<script src="js/widget/detail.js"></script>
+<script src="js/widget/grid.js"></script>
+<script src="js/widget/list.js"></script>
+
+<!-- Maps -->
+<script src="js/maps/bundles/maps.bundle.js"></script>
+<script src="js/widget/map.js"></script>
+<script src="js/widget/overviewmap.js"></script>
+<script src="js/widget/mapinfo.js"></script>
+
+<!-- Configure and init application -->
+<script src="js/config/defaults.js"></script>
+<script src="js/config/settings.js"></script>
+<script src="js/init.js"></script>
+
+<!-- Insert this line after script imports -->
+
+<script>if (window.module) module = window.module;</script>
+<script>
+if (Notification.permission !== "granted")
+    Notification.requestPermission();
+
+
+function notifyMe() {
+  if (!Notification) {
+    alert('Desktop notifications not available in your browser. Try Chromium.'); 
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification('Notification title', {
+      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      body: "Hey there! You've been notified!",
+    });
+
+    notification.onclick = function () {
+      window.open("http://stackoverflow.com/a/13328397/1269037");      
+    };
+
+  }
+
+}
+</script>
+
+
+</body>
+</html>

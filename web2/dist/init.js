@@ -1,0 +1,2 @@
+/*! Caesar v1.131.0 */
+$(function(){"use strict";App.init({sessionId:$.cookie(App.config.sessionName),language:App.router.getUrlParameterByName("lg"),theme:App.router.getUrlParameterByName("theme"),debug_i18n:"1"===App.router.getUrlParameterByName("debug_i18n")})});

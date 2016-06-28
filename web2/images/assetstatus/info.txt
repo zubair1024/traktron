@@ -1,0 +1,4 @@
+assetStateValue.idling=images/assetstatus/idling.png
+assetStateValue.normal=images/assetstatus/normal.png
+assetStateValue.notMoving=images/assetstatus/notmoving.png
+assetStateValue.notOperational=images/assetstatus/notoperational.png

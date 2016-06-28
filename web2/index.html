@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starting [ROAM]</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/kendo/kendo.common.min.css" rel="stylesheet">
+    <link href="dist/app.css" rel="stylesheet">
+    <link href="dist/theme-default.css" rel="stylesheet" id="theme">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8+9 support of HTML5 elements and media queries -->
+    <!--[if lt IE 10]>
+    <script src="dist/shims.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="content-wrap">
+
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="row" id="menuBar">
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" data-action="home"></a>
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li id="menu-menu" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-th-list"></span>
+                                <span class="menu-item-text" data-phrase="Menu">Menu</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline megamenu" id="navigation-menu" role="menu">
+                            </ul>
+                        </li>
+                        <li id="menu-alarms" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-bell"></span>
+                                <span class="menu-item-text" data-phrase="Alarms">Alarms</span>
+                                <b class="caret"></b>
+                                <span class="badge"></span>
+                            </a>
+                            <ul class="dropdown-menu list-inline alarmsmenu" role="menu">
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li id="menu-notifications" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-comment"></span>
+                                <span class="menu-item-text" data-phrase="Notifications">Notifications</span>
+                                <b class="caret"></b>
+                                <span class="badge"></span>
+                            </a>
+                            <ul class="dropdown-menu list-inline notificationsmenu" role="menu">
+                                <li></li>
+                            </ul>
+                        </li>
+
+                        <li id="menu-layout" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-credit-card"></span>
+                                <span class="menu-item-text" data-phrase="Panes">Panes</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline panesmenu" role="menu">
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu1 selected" data-layout="1"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu2" data-layout="2"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu3" data-layout="3"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu4" data-layout="4"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu5" data-layout="5"></div>
+                                </li>
+                                <li>
+                                    <div class="menu-column-header-icon panesmenu6" data-layout="6"></div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="search">
+                            <span class="glyphicon glyphicon-search" title="Search" data-toggle="tooltip"></span>
+                            <input id="search-main" type="text" value="" placeholder="Asset, group, customer"/>
+                            <span class="glyphicon glyphicon-remove" title="Clear search" data-toggle="tooltip"></span>
+
+                            <div class="search-results hidden">
+                                <table class="search-dropdown" id="search-results">
+                                </table>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#" data-action="user-settings" data-toggle="tooltip" title="My Profile">
+                                <span class="welcome-text" data-phrase="Hello">Hello</span>,
+                                <span class="welcome-username" id="userName"></span>
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle menu-settings" data-toggle="dropdown" title="Settings">
+                                <span class="glyphicon glyphicon-cog"></span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline settingsmenu" role="menu">
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <div class="menu-column-header-icon settingsmenu">
+                                                <div class="menu-column-header-text" data-phrase="Settings">Settings</div>
+                                            </div>
+                                            <ul class="menu-column-content">
+                                                <li>
+                                                    <a href="#" class="item" data-action="user-settings"
+                                                       data-phrase="My Profile">My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="item" data-action="widget-catalog"
+                                                       data-phrase="Widget Catalog">Widget Catalog</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle menu-helpmenu" data-toggle="dropdown" title="Help & Training">
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu list-inline helpmenu">
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <div class="menu-column-header-icon helpmenu">
+                                                <div class="menu-column-header-text" data-phrase="Help & Training">Help & Training</div>
+                                            </div>
+                                            <ul class="menu-column-content" id="navigation-help">
+                                                <li>
+                                                    <a href="../service/help/index.html" target="_blank" class="item" data-action="main-help" data-phrase="Tools & Instructions">Tools & Instructions</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="item" data-action="main-legal-notice" data-phrase="Legal Notice">Legal Notice</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" data-action="logout" title="Logout" data-toggle="tooltip">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ALARMS - Start -->
+            <div id="alarmBar" class="row">
+                <div class="alerts">
+                    <ul class="nav nav-pills alarm-items">
+                        <li id="alarm-ticker"></li>
+                    </ul>
+                </div>
+                <div class="alarmbar-collapse">
+                    <div class="alarmbar-collapse-background"></div>
+                    <a class="alarmbar-collapse-button">
+                        <span class="icon-collapse"></span>
+                    </a>
+                </div>
+            </div>
+            <!-- ALARMS - End -->
+
+        </div>
+    </div>
+
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!--navigationArea-->
+            <div class="col-sm-2" id="navigationArea" data-location="LEFT">
+                <!-- Navigation tree -->
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-header-tools">
+                        <span class="glyphicon glyphicon-minus" title="Minimize widget" data-toggle="tooltip"
+                              role="button" data-action="widget-toggle-minimize"></span>
+                        </div>
+                        <img class="widget-header-icon" alt="widget header icon" src="images/icons/32px/Content-34.png">
+                        <span class="widget-header-title" data-phrase="Explorer">Explorer</span>
+                    </div>
+                    <div class="widget-content">
+                        <div id="navigation-tree"></div>
+                    </div>
+                </div>
+
+                <!-- Favorites tree -->
+                <!--
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-header-tools">
+                            <span class="glyphicon glyphicon-minus" title="Minimize widget" data-toggle="tooltip" role="button" data-action="widget-toggle-minimize"></span>
+                        </div>
+                        <img class="widget-header-icon" alt="widget header icon" src="images/icons/32px/Status-30.png">
+                        <span class="widget-header-title" data-phrase="Favorites">Favorites</span>
+                    </div>
+                    <div class="widget-content">
+                        <div id="fav-tree-view"></div>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <div class="col-sm-7 col-sm-offset-2 draggable" id="mainArea" data-location="CENTER"></div>
+            <div class="col-sm-3 draggable" id="sideBar" data-location="RIGHT"></div>
+
+        </div>
+
+    </div>
+    <!-- End page content -->
+
+</div>
+
+<!-- BODY - End -->
+
+<!-- FOOTER - Start -->
+<div id="footer" class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".footer-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!--<a class="navbar-brand" href="#">Project name</a>-->
+    </div>
+    <div class="navbar-collapse collapse footer-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="#" data-action="home" data-phrase="Home">Home</a></li>
+            <li><a href="#" data-action="user-settings" data-phrase="My Profile">My Profile</a></li>
+            <li><a href="#" data-action="widget-catalog" data-phrase="Widget Catalog">Widget Catalog</a></li>
+            <li>
+                <a href="../service/help/index.html" target="_blank" class="title" data-action="main-help" data-phrase="Tools & Instructions">Tools & Instructions</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text" id="copyrights-text"></p></li>
+            <li><a href="#" data-action="home" class="navbar-brand footer-logo hidden-xs"></a></li>
+        </ul>
+    </div>
+</div>
+<!-- FOOTER - End -->
+
+<!-- Scripts -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script src="dist/lib.js"></script>
+<script src="dist/app.js"></script>
+<script src="js/config/settings.js"></script>
+<script src="dist/init.js"></script>
+<script>if (window.module) module = window.module;</script>
+<script>
+    // You can also require other files to run in this process
+    require('../renderer.js')
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+.widget-catalog-content {
+    height:  100%;
+    padding: 10px;
+}
+
+/* region styling of the panels in the widget catalog. Reusing the standard dashboard widgets for that */
+.widget-catalog-content > div > .widget-header {
+    padding:     0 0 0 10px;
+    font-weight: bold;
+}
+
+.widget-catalog-content .widget-header,
+.widget-catalog-content .widget-content,
+.widget-catalog-content,
+.edit-widget-content .widget-header,
+.edit-widget-content .widget-content {
+    -moz-box-sizing: border-box;
+    box-sizing:      border-box;
+}
+
+.widget-catalog-content > .widget {
+    margin-bottom: 0;
+}
+
+.widget-catalog-content .intro-text {
+    margin-bottom: 10px;
+}
+
+#widget-catalog .widget {
+    height: 100%;
+}
+
+#widget-catalog .widget-header-title {
+    left: 10px;
+}
+
+#widget-catalog .widget-content {
+    height: 95%;
+}
+
+#widget-catalog .widget-content .title {
+    display:        inline-block;
+    width:          55%; /* fallback for browsers without support for calc() */
+    width:          calc(100% - 5em);
+    vertical-align: top;
+    word-wrap:      break-word;
+}
+
+#widget-catalog .widget.app-objects {
+    float:        left;
+    margin-right: 1.333em;
+    width:        20%;
+}
+
+#widget-catalog .widget.positioning {
+    float:        left;
+    margin-right: 1.333em;
+    width:        55%;
+}
+
+#widget-catalog .widget.available {
+    float: left;
+    width: 20%;
+}
+
+#widget-catalog .widget.disabled {
+    /* copied from Bootstrap's .btn.disabled */
+    cursor:     not-allowed;
+    box-shadow: none;
+    opacity:    .65;
+}
+
+/* endregion styling of the panels in the widget catalog. Reusing the standard dashboard widgets for that */
+
+/* region sortable lists styling */
+.wc-sortable h3 {
+    font-size:      inherit;
+    text-transform: uppercase;
+    color:          #4e5254;
+}
+
+.wc-sortable ul {
+    list-style: none;
+    min-height: 32px;
+}
+
+.wc-sortable ul[data-location] {
+    min-height: 300px;
+}
+
+.wc-sortable ul ul {
+    padding-left: 16px;
+}
+
+.wc-sortable li {
+    cursor:           move;
+    padding:          5px 0;
+    border:           1px solid #eee;
+    margin:           2px 0;
+    display:          block;
+    background-color: white;
+}
+
+.wc-sortable li a.glyphicon {
+    margin-left: 5px;
+    color:       #2e2e2e;
+    cursor:      pointer;
+}
+
+/* only for LTR site */
+.wc-sortable li {
+    padding-right: 5px;
+}
+
+/* widget icon in sortables */
+.wc-sortable li > img {
+    width:        16px;
+    height:       16px;
+    margin-left:  5px;
+    margin-right: 5px;
+}
+
+.wc-sortable .ui-state-highlight {
+    border:     1px dashed #b2b2b4;
+    min-height: 2em;
+}
+
+/* endregion sortable lists styling */
+
+#widget-catalog .widget-content {
+    padding: 10px;
+}
+
+/* No border for ListViews in the widget catalog */
+#widget-catalog #wc-app-objects .k-listview {
+    border:   none;
+    /* fixed height... Solution: replace widget catalog layout with bootstrap... */
+    height:   350px;
+    overflow: auto;
+}
+
+#widget-catalog #wc-app-objects .k-listview > div {
+    padding: 5px;
+    cursor:  pointer;
+}
+
+/* region App.ui.WidgetCatalogEditDialog */
+.edit-widget-content {
+    height:   100%;
+    overflow: auto;
+}
+
+.edit-widget-content .widget-header {
+    font-weight: bold;
+}
+
+.edit-widget-content .widget-content {
+    padding: 10px;
+}
+
+.edit-widget-content > div {
+    padding: 10px;
+}
+
+.edit-widget-content ul {
+    list-style:    none;
+    margin-bottom: 10px;
+}
+
+.edit-widget-content dd {
+    margin-bottom: 10px;
+}
+
+#widget_information .popover-content {
+    max-height: 216px;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+#widget_information .icon-popover img {
+    padding: 5px;
+}
+
+#widget_information .icon-popover img:hover {
+    background-color: #ebebeb;
+}
+
+/* add "move" cursor to draggable grid rows */
+#widget_columns table td {
+    cursor: move;
+}
+
+/* ...except for those cells with a checkbox */
+#widget_columns input[type="checkbox"] {
+    cursor: pointer;
+}
+
+/* endregion App.ui.WidgetCatalogEditDialog */
+

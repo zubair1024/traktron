@@ -1,0 +1,13 @@
+[ignore]
+./dist/.*
+./m/*
+./m-dev/.*
+node_modules/.*
+
+[include]
+./js/.*
+
+[libs]
+# ./js/lib/.*
+
+[options]

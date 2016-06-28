@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 1560 1560" width="18" height="18">
+    <g transform="rotate(${rotation} 780 780)">
+        <circle fill="${backgroundColor}" stroke="none" cx="780" cy="780" r="770"/>
+        <path fill="${color}" stroke="none" d="m840,1292l-128,0q-26,0 -45,-19q-19,-19 -19,-45l0,-502l-189,189q-19,19 -45,19q-26,0 -45,-19l-91,-91q-18,-18 -18,-45q0,-27 18,-45l362,-362l91,-91q18,-18 45,-18q27,0 45,18l91,91l362,362q18,18 18,45q0,27 -18,45l-91,91q-18,18 -45,18q-27,0 -45,-18l-189,-189l0,502q0,26 -19,45q-19,19 -45,19z"/>
+    </g>
+</svg>

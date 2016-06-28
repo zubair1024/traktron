@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>ROAMWORKS QUnit Test Runner</title>
+
+    <link rel="stylesheet" href="../css/qunit-1.16.0.css">
+
+    <!-- START copy includes from ../index_dev.html -->
+
+    <!-- jQuery & Kendo -->
+    <script>
+        var DEBUG = true;
+    </script>
+    <script src="../js/lib/jquery-1.11.3.js"></script>
+    <script src="../js/lib/kendo/jszip.min.js"></script>
+
+    <script src="../js/lib/kendo/kendo.core.min.js"></script>
+    <script src="../js/lib/kendo/kendo.router.min.js"></script>
+    <script src="../js/lib/kendo/kendo.fx.min.js"></script>
+    <script src="../js/lib/kendo/kendo.userevents.min.js"></script>
+    <script src="../js/lib/kendo/kendo.draganddrop.min.js"></script>
+    <script src="../js/lib/kendo/kendo.mobile.scroller.min.js"></script>
+    <script src="../js/lib/kendo/kendo.data.min.js"></script>
+    <script src="../js/lib/kendo/kendo.popup.min.js"></script>
+    <script src="../js/lib/kendo/kendo.list.min.js"></script>
+    <script src="../js/lib/kendo/kendo.autocomplete.min.js"></script>
+    <script src="../js/lib/kendo/kendo.combobox.min.js"></script>
+    <script src="../js/lib/kendo/kendo.calendar.min.js"></script>
+    <script src="../js/lib/kendo/kendo.datepicker.min.js"></script>
+    <script src="../js/lib/kendo/kendo.timepicker.min.js"></script>
+    <script src="../js/lib/kendo/kendo.datetimepicker.min.js"></script>
+    <script src="../js/lib/kendo/kendo.dropdownlist.min.js"></script>
+    <script src="../js/lib/kendo/kendo.window.min.js"></script>
+    <script src="../js/lib/kendo/kendo.color.min.js"></script>
+    <script src="../js/lib/kendo/kendo.slider.min.js"></script>
+    <script src="../js/lib/kendo/kendo.colorpicker.min.js"></script>
+    <script src="../js/lib/kendo/kendo.editor.min.js"></script>
+    <script src="../js/lib/kendo/kendo.numerictextbox.min.js"></script>
+    <script src="../js/lib/kendo/kendo.validator.min.js"></script>
+    <script src="../js/lib/kendo/kendo.binder.min.js"></script>
+    <script src="../js/lib/kendo/kendo.editable.min.js"></script>
+    <script src="../js/lib/kendo/kendo.filtermenu.min.js"></script>
+    <script src="../js/lib/kendo/kendo.menu.min.js"></script>
+    <script src="../js/lib/kendo/kendo.columnmenu.min.js"></script>
+    <script src="../js/lib/kendo/kendo.groupable.min.js"></script>
+    <script src="../js/lib/kendo/kendo.filtercell.min.js"></script>
+    <script src="../js/lib/kendo/kendo.pager.min.js"></script>
+    <script src="../js/lib/kendo/kendo.selectable.min.js"></script>
+    <script src="../js/lib/kendo/kendo.reorderable.min.js"></script>
+    <script src="../js/lib/kendo/kendo.resizable.min.js"></script>
+    <script src="../js/lib/kendo/kendo.view.min.js"></script>
+    <script src="../js/lib/kendo/kendo.mobile.view.min.js"></script>
+    <script src="../js/lib/kendo/kendo.mobile.loader.min.js"></script>
+    <script src="../js/lib/kendo/kendo.mobile.pane.min.js"></script>
+    <script src="../js/lib/kendo/kendo.mobile.popover.min.js"></script>
+    <script src="../js/lib/kendo/kendo.mobile.shim.min.js"></script>
+    <script src="../js/lib/kendo/kendo.mobile.actionsheet.min.js"></script>
+    <script src="../js/lib/kendo/kendo.ooxml.min.js"></script>
+    <script src="../js/lib/kendo/kendo.excel.min.js"></script>
+    <script src="../js/lib/kendo/kendo.drawing.min.js"></script>
+    <script src="../js/lib/kendo/kendo.pdf.min.js"></script>
+    <script src="../js/lib/kendo/kendo.columnsorter.min.js"></script>
+    <script src="../js/lib/kendo/kendo.grid.min.js"></script>
+    <script src="../js/lib/kendo/kendo.listview.min.js"></script>
+    <script src="../js/lib/kendo/kendo.multiselect.min.js"></script>
+    <script src="../js/lib/kendo/kendo.panelbar.min.js"></script>
+    <script src="../js/lib/kendo/kendo.progressbar.min.js"></script>
+    <script src="../js/lib/kendo/kendo.splitter.min.js"></script>
+    <script src="../js/lib/kendo/kendo.tabstrip.min.js"></script>
+    <script src="../js/lib/kendo/kendo.toolbar.min.js"></script>
+    <script src="../js/lib/kendo/kendo.treeview.min.js"></script>
+    <script src="../js/lib/kendo/kendo.upload.min.js"></script>
+    <script src="../js/lib/kendo/kendo.dataviz.core.min.js"></script>
+    <script src="../js/lib/kendo/kendo.dataviz.themes.min.js"></script>
+    <script src="../js/lib/kendo/kendo.dataviz.chart.min.js"></script>
+    <script src="../js/lib/kendo/kendo.dataviz.gauge.min.js"></script>
+
+    <script src="../js/lib/kendo/cultures/kendo.culture.en.min.js"></script>
+
+    <!-- other libs -->
+    <script src="../js/lib/lodash.js"></script>
+    <script src="../js/lib/stampit.js"></script>
+    <script src="../js/lib/cornify.js"></script>
+    <script src="../js/lib/jquery.easteregg.js"></script>
+
+    <!-- jQuery UI sortable -->
+    <script src="../js/lib/jquery-ui.js"></script>
+
+    <!-- jQuery Plugins -->
+    <script src="../js/lib/jquery.cookie.js"></script>
+    <script src="../js/lib/jquery.mousewheel.js"></script>
+    <!--<script src="js/lib/jquery.marquee.js"></script>-->
+    <script src="../js/lib/jquery.nouislider.all.js"></script>
+    <script src="../js/lib/jquery.link.js"></script>
+    <script src="../js/lib/jquery.scrollintoview.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../js/lib/bootstrap.js"></script>
+
+    <!-- Misc -->
+    <script src="../js/lib/kendo.menu.ex.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
+
+    <!-- Components -->
+    <script src="../js/utils/application.js"></script>
+    <script src="../js/utils/cmd.js"></script>
+    <script src="../js/utils/dialog.js"></script>
+    <script src="../js/utils/i18n.js"></script>
+    <script src="../js/utils/log.js"></script>
+    <script src="../js/utils/router.js"></script>
+    <script src="../js/utils/user.js"></script>
+    <script src="../js/utils/util.js"></script>
+
+    <!-- UI -->
+    <script src="../js/ui/multiselect.js"></script>
+    <script src="../js/ui/navigationtreeview.js"></script>
+    <script src="../js/ui/selectiontree.js"></script>
+    <script src="../js/ui/field.js"></script>
+    <script src="../js/ui/login.js"></script>
+    <script src="../js/ui/menu-base.js"></script>
+    <script src="../js/ui/menu.js"></script>
+    <script src="../js/ui/toast.js"></script>
+    <script src="../js/ui/widgetpanel.js"></script>
+    <script src="../js/ui/notification.js"></script>
+    <script src="../js/ui/alarm.js"></script>
+    <script src="../js/ui/aboutwindow.js"></script>
+
+    <!-- Wizards -->
+    <script src="../js/ui/wizard-base.js"></script>
+    <script src="../js/ui/wizard-administration.js"></script>
+    <script src="../js/ui/wizard-batchupload.js"></script>
+    <script src="../js/ui/wizard-report.js"></script>
+    <script src="../js/ui/wizard-widget.js"></script>
+    <script src="../js/ui/widgetcatalog.js"></script>
+
+    <!-- Widgets -->
+    <script src="../js/widget/base.js"></script>
+    <script src="../js/widget/assetcommand.js"></script>
+    <script src="../js/widget/dashboard.js"></script>
+    <script src="../js/widget/detail.js"></script>
+    <script src="../js/widget/grid.js"></script>
+    <script src="../js/widget/list.js"></script>
+    <script src="../js/widget/simplegrid.js"></script>
+
+    <!-- Maps -->
+    <!--<script src="../js/maps/modules/maps.js"></script>-->
+    <!--<script src="../js/widget/map.js"></script>-->
+    <!--<script src="../js/widget/overviewmap.js"></script>-->
+    <script src="../js/widget/mapinfo.js"></script>
+
+    <!-- Maps -->
+    <!--<script src="../js/maps/ui/coordinatesdisplay.js"></script>-->
+    <!--<script src="../js/maps/ui/daterangeslider.js"></script>-->
+    <!--<script src="../js/maps/ui/eventconnector.js"></script>-->
+    <!--<script src="../js/maps/ui/intervalpanel.js"></script>-->
+    <!--<script src="../js/maps/ui/legend.js"></script>-->
+    <!--<script src="../js/maps/ui/routing.js"></script>-->
+    <!--<script src="../js/maps/LibraryMappings.js"></script>-->
+    <!--<script src="../js/maps/init.js"></script>-->
+    <!--<script src="../js/maps/controller.js"></script>-->
+    <!--<script src="../js/maps/MapApplicationProfile.js"></script>-->
+    <!--<script src="../js/maps/StyleDefaults.js"></script>-->
+    <!--<script src="../js/maps/StyleProperties.js"></script>-->
+    <!--<script src="../js/maps/viewers/AbstractMapViewer.js"></script>-->
+    <!--<script src="../js/maps/viewers/AbstractLayerManager.js"></script>-->
+    <!--<script src="../js/maps/ui/controls.js"></script>-->
+    <!--<script src="../js/maps/AbstractAnimationManager.js"></script>-->
+    <!--<script src="../js/maps/utils.js"></script>-->
+    <!--<script src="../js/maps/viewers/heremaps/viewer.js"></script>-->
+    <!--<script src="../js/maps/viewers/heremaps/routing.js"></script>-->
+    <!--<script src="../js/maps/viewers/heremaps/addresssearch.js"></script>-->
+    <!--<script src="../js/maps/viewers/heremaps/static.js"></script>-->
+    <!--<script src="../js/maps/viewers/googlev3/static.js"></script>-->
+    <!--<script src="../js/maps/viewers/openlayers/static.js"></script>-->
+
+    <!-- Configure and init application -->
+    <script src="../js/config/defaults.js"></script>
+    <script src="../js/config/settings.js"></script>
+
+    <!-- END copy includes from ../index_dev.html -->
+
+
+    <script src="../js/lib/qunit-1.16.0.js"></script>
+
+    <!-- your tests, any and all to run with the given fixtures below -->
+    <script src="tests.js"></script>
+
+    <!--<script src="dev.js"></script>-->
+
+</head>
+<body>
+<div id="qunit"></div>
+<!-- QUnit fills this with results, etc -->
+<div id="qunit-fixture">
+
+    <!-- any HTML you want to be present in each test (will be reset for each test) -->
+
+</div>
+</body>
+</html>

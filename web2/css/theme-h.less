@@ -1,0 +1,174 @@
+/* Theme H */
+@import url('../css/kendo/kendo.silver.min.css');
+
+@primary: #68acd9;
+@primary-alt: #26536f;
+@secondary: #b7babd;
+@secondary-text: #000;
+@body-bg: #e9f3f9;
+@text-color: #000;
+
+body {
+  background-color: @body-bg;
+}
+
+/* Main text color */
+option,
+.navbar-nav > li > .dropdown-menu .menu-column-content .item,
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-text,
+.about-window > .k-window-titlebar .about-version,
+ul.gauge-legend li > span,
+.k-input, input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:hover, .k-textbox > input, .k-multiselect-wrap {
+  color: @text-color;
+}
+
+/* Here we set the "selection" color. */
+a, a:visited, .ref-icon {
+  color: @primary;
+}
+
+/* adjust Kendo's silver theme selection styles */
+.k-state-selected,
+.k-state-selected:link,
+.k-state-selected:visited,
+.k-list > .k-state-selected,
+.k-list > .k-state-highlight,
+.k-panel > .k-state-selected,
+.k-ghost-splitbar-vertical,
+.k-ghost-splitbar-horizontal,
+.k-draghandle.k-state-selected:hover,
+.k-scheduler .k-scheduler-toolbar .k-state-selected,
+.k-scheduler .k-today.k-state-selected,
+.k-marquee-color {
+  background-color: @primary;
+  border-color:     @primary-alt;
+  color:            @secondary-text;
+}
+
+.k-state-focused.k-state-selected,
+.k-list > .k-state-focused.k-state-selected,
+.k-listview > .k-state-focused.k-state-selected,
+td.k-state-focused.k-state-selected {
+  -webkit-box-shadow: none;
+  box-shadow:         none;
+}
+
+.search-dropdown-items ul li:hover {
+  color:            #fff;
+  background-color: @primary;
+}
+
+/* Menu */
+ul.nav li.dropdown > a, ul.nav .search > .glyphicon {
+  color: #8c8b8c;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .item:hover {
+  color: @primary-alt;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-header-text {
+  border-bottom: 2px solid @primary-alt;
+}
+
+.alarm-notification {
+  background-image: url('../images/verticalseparatordotsorange-c.png');
+}
+
+.navbar > .container .navbar-brand {
+  margin-top: 2px;
+  width:      168px;
+  height:     47px;
+}
+
+/* also prohibit smaller chunks than this for the logo */
+.navbar .col-sm-2 {
+  min-width: 170px;
+}
+
+.navbar > .container .navbar-brand {
+  background: url('../images/logos/logo-h.png') top left no-repeat;
+  margin-top: 2px;
+  width:      168px;
+  height:     47px;
+}
+
+.alerts {
+  border-top-color: #218acb;
+  background-color: @primary;
+  background:       none, linear-gradient(to bottom, #add0e9, #218acb); /* W3C */
+}
+
+.alarmbar-collapse-background,
+.alarmbar-collapse-button {
+  background-color: #218acb;
+}
+
+/* AlarmStatus red and "yellow" */
+ul.alarm-items .alarmstatus-not-all-acknowledged,
+ul.alarm-items .alarmstatus-all-acknowledged {
+  background-color: #356d91;
+  background:       none, linear-gradient(to bottom, #4285b0, @primary-alt); /* W3C */
+  border:           none;
+}
+
+#menuBar .navbar-nav > li > a > .badge {
+  background-color: #356d91;
+  background:       none, linear-gradient(to bottom, #4285b0, @primary-alt);
+  font-size:        1em;
+}
+
+#alarmBar .badge {
+  background: transparent;
+}
+
+.widget-header {
+  border-color:     @secondary;
+  background-color: @secondary;
+  background:       none, linear-gradient(to bottom, #e7e7e9, @secondary); /* W3C */
+  color:            @secondary-text;
+}
+
+.widget-content {
+  border-color: #9fa3a9;
+}
+
+.draggable .widget .widget-header {
+  background: url('../images/widget-header-handle.png') 3px 3px no-repeat, @secondary linear-gradient(to bottom, #e7e7e9, @secondary) 0 0;
+}
+
+/* Search */
+.search .search-dropdown .items ul li:hover {
+  background-color: @primary;
+}
+
+/* Wizard styles - remove border from buttons */
+.k-ext-dialog-buttons .btn,
+.wizard-steps > a,
+.widget-next-btn-wrapper .btn {
+  border: none;
+}
+
+/* wizard styles (active) */
+.k-ext-dialog-buttons .btn:hover,
+.wizard-steps > a.active,
+.k-ext-dialog-buttons .btn:hover,
+.widget-next-btn-wrapper .btn:hover {
+  background-color: #356d91;
+  border-color:     @primary;
+  background:       none, linear-gradient(to bottom, #4285b0, @primary-alt); /* W3C */
+}
+
+/* Login */
+#loginDialog {
+  background: #fff url('../images/logos/login-h.png') no-repeat scroll center 40px;
+}
+
+#footer {
+  background-color: #464646;
+}
+
+#footer a, #footer .navbar-text {
+  color: #fff;
+}
+

@@ -1,0 +1,938 @@
+@charset "UTF-8";
+
+/*
+--------------------------------------------------------------------------------
+CSS    : maps.css
+Created: February 2015
+Author : Glenn Dwiyatcita
+--------------------------------------------------------------------------------
+The main CSS file for the ROAM maps module (widget). The CSS architecture
+heavily follows the SMACSS style guide by John Snook (https://smacss.com/), so
+it is meant to be scalable and modular.
+
+SMACSS is my cup of tea for developing the CSS for the maps. I know this approach
+may sound rather "classitis" at first, but it helps a lot in increasing the
+semantics, maintenance, and readability of the style of the HTML element in
+question. If you don't know what that even means, please do *read* about SMACSS,
+so if you planned to do any hack, please refrain and think again. =)
+*/
+
+.map-canvas {
+    overflow: hidden !important;
+}
+
+/* Bootstrap labels - make them a bit larger. */
+.map-canvas .label {
+    font-weight: normal;
+    font-size:   inherit;
+}
+
+/* region Map controls */
+/* region General panel */
+.map-controls {
+    overflow-x: hidden !important;
+}
+
+.map-controls .highlight {
+    padding:          9px 14px;
+    margin-bottom:    14px;
+    background-color: #f7f7f9;
+    border:           1px solid #e1e1e8;
+    border-radius:    4px;
+}
+
+.mc-panel .badge {
+    margin-left: 4px;
+}
+
+.mc-panel-body {
+    padding: 8px !important;
+}
+
+.mc-panel-body .checkbox span,
+.mc-panel-body .radio span {
+    line-height: 1.82857143;
+}
+
+.mc-panel-body .k-dropdown,
+.mc-panel-body .k-datetimepicker {
+    display: block;
+    width:   100%;
+}
+
+.mc-control-group {
+    margin-bottom: 8px;
+}
+
+.mc-control-group .form-control {
+    box-sizing: border-box;
+}
+
+.mc-control-group .panel-fieldset {
+    padding: 8px;
+}
+
+.mc-panel-body form .invalid-block {
+    margin-top: 6px;
+    padding:    4px;
+}
+
+/* endregion General panel */
+
+/* region Navigation panel */
+.position-list > .list-group-item {
+    cursor:      pointer;
+    font-weight: normal;
+}
+
+.list-group-item.active {
+    background-color: #f35800;
+    border-color:     #f35800;
+}
+
+.list-group-item.active:hover {
+    background-color: #bcb4b0;
+    border-color:     #c5c5c5;
+    color:            #2e2e2e;
+}
+
+.mc-control-group > .status-filters-container {
+    display: block;
+}
+
+.status-filters-container > .k-multiselect {
+    margin-top:  4px;
+    font-weight: normal;
+}
+
+.k-multiselect-wrap > .k-input {
+    width: auto !important;
+}
+
+/* endregion Navigation panel */
+
+/* region Animation panel */
+.mc-control-group > .btn-animation {
+    margin: 0 8px;
+}
+
+/* endregion Animation panel */
+
+/* region Locations/geofences panel */
+.mc-control-group > .object-tree {
+    padding:     4px 12px 4px 4px;
+    white-space: nowrap;
+    overflow:    hidden;
+}
+
+.object-tree .k-image {
+    height:     16px;
+    width:      16px;
+    margin-top: 0;
+}
+
+.object-tree .k-top > .k-in,
+.object-tree .k-mid > .k-in,
+.object-tree .k-bot > .k-in {
+    white-space: normal;
+}
+
+/*.mc-control-group .form-name {*/
+/*font-weight:    700;*/
+/*color:          #959595;*/
+/*text-transform: uppercase;*/
+/*letter-spacing: 1px;*/
+/*}*/
+
+.mc-control-group > .object-editor {
+    margin-top: 8px;
+}
+
+.editor-fieldset .btn-group {
+    width: 100%;
+}
+
+.object-editor .confirm-object-creation,
+.object-editor .cancel-object-creation {
+    /*font-size: 95%;*/
+}
+
+/* endregion Locations/geofences panel */
+
+/* region Icons */
+.mc-icon {
+    display:           inline-block;
+    margin-right:      4px;
+    background-repeat: no-repeat;
+    background-size:   16px 16px;
+    height:            16px;
+    width:             16px;
+    line-height:       0;
+    vertical-align:    middle;
+}
+
+.mc-icon-panel {
+    margin-left: -8px;
+}
+
+.mc-icon-mapview {
+    background-image: url(../images/icons/32px/Places-24.png);
+}
+
+.mc-icon-viewbehavior {
+    background-image: url(../images/icons/32px/Interface-26.png);
+}
+
+.mc-icon-viewarea {
+    background-image: url(../images/icons/32px/Edition-28.png);
+}
+
+.mc-icon-intervals {
+    background-image: url(../images/icons/32px/Time-3.png);
+}
+
+.mc-icon-navigation {
+    background-image: url(../images/icons/32px/Transportation-6.png);
+}
+
+.mc-icon-animation {
+    background-image: url(../images/icons/32px/Multimedia-22.png);
+}
+
+.mc-icon-locations {
+    background-image: url(../images/icons/32px/Places-37.png);
+}
+
+.mc-icon-addresssearch {
+    background-image: url(../images/icons/32px/Content-25.png);
+}
+
+.mc-icon-routing {
+    background-image: url(../images/icons/32px/Places-26.png);
+}
+
+.mc-icon-geofences {
+    background-image: url(../images/icons/32px/Places-35.png);
+}
+
+.mc-icon-goto {
+    margin-left:      4px;
+    background-image: url(../images/maps/icons/world_go.png);
+    cursor:           pointer;
+}
+
+/* endregion Icons */
+
+/* region Helper classes */
+.mc-panel-body .scrollable {
+    height:     160px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border:     solid 1px grey;
+}
+
+.mc-panel-body .scrollable-sm {
+    height: 120px;
+}
+
+/* Do not add a border for scrollable things inside of Bootstrap panels. */
+.panel > .scrollable {
+    border: none;
+}
+
+.mc-container-disabled {
+    opacity:        .5;
+    pointer-events: none;
+}
+
+/* endregion Helper classes */
+
+/* endregion Map controls */
+
+/* region Map info box */
+.mapinfo.popover {
+    max-width: 480px;
+    width:     375px;
+}
+
+.mapinfo .close {
+    margin-top:   -4px;
+    margin-right: -4px;
+}
+
+.mapinfo .popover-content {
+    padding: 0;
+}
+
+.mapinfo .nav-tabs {
+    padding-top: .5em;
+}
+
+.mapinfo .tab-content,
+.mapinfo .popover-content > .dl-tab-content {
+    padding: .5em;
+}
+
+.mapinfo .dl-tab-content dt {
+    width: 105px;
+}
+
+.mapinfo .dl-tab-content dd {
+    margin-left: 115px;
+}
+
+/* endregion Map info box */
+
+/* region Map routing */
+.mc-panel-body > [name="add-waypoint"] {
+    padding-left: 0;
+}
+
+.mc-panel-body > [name="add-waypoint"]:hover,
+.mc-panel-body > [name="add-waypoint"]:focus {
+    color:           #333;
+    text-decoration: none;
+}
+
+.waypoint-list > .waypoint-item {
+    margin-bottom: 4px;
+    list-style:    none;
+}
+
+.waypoint-item > .waypoint-label {
+    background-color: #1080dd;
+    margin-right:     4px;
+    border-radius:    .4em;
+    cursor:           move;
+}
+
+.waypoint-item .k-widget {
+    width: 78%;
+}
+
+.waypoint-item > .waypoint-remover {
+    padding: 0 0 0 8px;
+}
+
+.waypoint-item .waypoint-input-clear {
+    position: absolute;
+    right:    4px;
+    bottom:   4px;
+    cursor:   pointer;
+}
+
+.mc-icon-routing-typeasset,
+.mc-icon-routing-typecanbusfleetvehicle {
+    background-image: url(../images/icons/16px/Transportation-6.png);
+}
+
+.mc-icon-routing-typeearthmovingvehicle {
+    background: url(../images/icons/16px/icon_bulldozer.png);
+}
+
+.mc-icon-routing-typetank {
+    background: url(../images/icons/16px/Objects-9.png);
+}
+
+.mc-icon-routing-typetanker {
+    background: url(../images/icons/16px/Business-92.png);
+}
+
+.mc-icon-routing-typepump {
+    background: url(../images/icons/16px/Transfers-75.png);
+}
+
+.mc-icon-routing-typegenerator {
+    background: url(../images/icons/16px/Edition-66.png);
+}
+
+.mc-icon-routing-typelocation {
+    background-image: url(../images/icons/16px/Places-37.png);
+}
+
+.mc-icon-routing-typegeofence {
+    background: url(../images/icons/16px/Places-33.png);
+}
+
+.mc-icon-routing-typeaddress {
+    background-image: url(../images/icons/16px/Content-25.png);
+}
+
+.route-features > .route-features-heading {
+    margin-bottom: 0;
+}
+
+.route-features > .row.route-features-body,
+.row.route-features-body > .col-route-features {
+    box-sizing: border-box;
+}
+
+.route-features > .row.route-features-body {
+    padding: 8px;
+}
+
+.row.route-features-body > .col-route-features {
+    padding-right: 15px;
+    padding-left:  15px;
+}
+
+.route-summary-text dl {
+    margin:  8px 4px;
+    padding: 8px;
+}
+
+.route-summary-text dt {
+    width:       85px;
+    text-align:  left;
+    font-weight: normal;
+}
+
+.route-summary-text dd {
+    margin-left: 80px;
+    font-weight: bold;
+}
+
+.maneuver-list .list-group-item {
+    word-wrap: break-word;
+}
+
+.print-route {
+    cursor: pointer;
+}
+
+/* region Route direction action icon */
+
+/* region HERE Maps */
+/*
+ * Maneuver's direction action icons for HERE Maps v3.x.
+ * Adapted from https://developer.here.com/api-explorer#maps-js/map-with-route-from-a-to-b
+ */
+.maneuver-list .arrow {
+    display:          inline-block;
+    min-width:        28px;
+    min-height:       28px;
+    margin-right:     4px;
+    background-image: url(../images/maps/icons/maneuver/arrows.png);
+    vertical-align:   middle;
+}
+
+.maneuver-list .arrow.depart {
+    background-position: -28px 0;
+}
+
+.maneuver-list .arrow.rightUTurn {
+    background-position: -56px 0;
+}
+
+.maneuver-list .arrow.leftUTurn {
+    background-position: -84px 0;
+}
+
+.maneuver-list .arrow.rightFork {
+    background-position: -112px 0;
+}
+
+.maneuver-list .arrow.leftFork {
+    background-position: -140px 0;
+}
+
+.maneuver-list .arrow.rightMerge {
+    background-position: -168px 0;
+}
+
+.maneuver-list .arrow.leftMerge {
+    background-position: -196px 0;
+}
+
+.maneuver-list .arrow.slightRightTurn {
+    background-position: -224px 0;
+}
+
+.maneuver-list .arrow.slightLeftTurn {
+    background-position: -252px 0;
+}
+
+.maneuver-list .arrow.sharpRightTurn {
+    background-position: -280px 0;
+}
+
+.maneuver-list .arrow.sharpLeftTurn {
+    background-position: -308px 0;
+}
+
+.maneuver-list .arrow.rightTurn {
+    background-position: -336px 0;
+}
+
+.maneuver-list .arrow.leftTurn {
+    background-position: -364px 0;
+}
+
+.maneuver-list .arrow.leftRamp {
+    background-position: -392px 0;
+}
+
+.maneuver-list .arrow.rightRamp {
+    background-position: -420px 0;
+}
+
+.maneuver-list .arrow.rightExit {
+    background-position: -448px 0;
+}
+
+.maneuver-list .arrow.leftExit {
+    background-position: -476px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit1 {
+    background-position: -616px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit2 {
+    background-position: -644px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit3 {
+    background-position: -672px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit4 {
+    background-position: -700px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutPass {
+    background-position: -700px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit5 {
+    background-position: -728px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit6 {
+    background-position: -756px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit7 {
+    background-position: -784px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit8 {
+    background-position: -812px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit9 {
+    background-position: -840px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit10 {
+    background-position: -868px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit11 {
+    background-position: -896px 0;
+}
+
+.maneuver-list .arrow.rightRoundaboutExit12 {
+    background-position: -924px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit1 {
+    background-position: -952px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit2 {
+    background-position: -980px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit3 {
+    background-position: -1008px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit4 {
+    background-position: -1036px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutPass {
+    background-position: -1036px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit5 {
+    background-position: -1064px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit6 {
+    background-position: -1092px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit7 {
+    background-position: -1120px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit8 {
+    background-position: -1148px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit9 {
+    background-position: -1176px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit10 {
+    background-position: -1204px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit11 {
+    background-position: -1232px 0;
+}
+
+.maneuver-list .arrow.leftRoundaboutExit12 {
+    background-position: -1260px 0;
+}
+
+.maneuver-list .arrow.arrive {
+    background-position: -1288px 0;
+}
+
+.maneuver-list .arrow.ferry {
+    background-position: -1316px 0;
+}
+
+/* endregion HERE Maps */
+
+/* region Google Maps */
+/*
+ * Maneuver's direction action icons for Google Maps v3.x.
+ * Ripped from https://developers.google.com/maps/documentation/javascript/examples/directions-panel
+ */
+.maneuver-list .adp-maneuver {
+    display:          inline-block;
+    width:            16px;
+    height:           16px;
+    margin-right:     4px;
+    background-image: url(../images/maps/icons/maneuver/maneuvers.png);
+}
+
+.maneuver-list .adp-maneuver.turn-sharp-left {
+    background-position: 0 0;
+}
+
+.maneuver-list .adp-maneuver.uturn-right {
+    background-position: 0 -35px;
+}
+
+.maneuver-list .adp-maneuver.turn-slight-right {
+    background-position: 0 -51px;
+}
+
+.maneuver-list .adp-maneuver.merge {
+    background-position: 0 -143px;
+}
+
+.maneuver-list .adp-maneuver.roundabout-left {
+    background-position: 0 -197px;
+}
+
+.maneuver-list .adp-maneuver.roundabout-right {
+    background-position: 0 -232px;
+}
+
+.maneuver-list .adp-maneuver.uturn-left {
+    background-position: 0 -305px;
+}
+
+.maneuver-list .adp-maneuver.turn-slight-left {
+    background-position: 0 -378px;
+}
+
+.maneuver-list .adp-maneuver.turn-left {
+    background-position: 0 -413px;
+}
+
+.maneuver-list .adp-maneuver.ramp-right {
+    background-position: 0 -429px;
+}
+
+.maneuver-list .adp-maneuver.turn-right {
+    background-position: 0 -483px;
+}
+
+.maneuver-list .adp-maneuver.fork-right {
+    background-position: 0 -499px;
+}
+
+.maneuver-list .adp-maneuver.straight {
+    background-position: 0 -534px;
+}
+
+.maneuver-list .adp-maneuver.fork-left {
+    background-position: 0 -550px;
+}
+
+.maneuver-list .adp-maneuver.ferry-train {
+    background-position: 0 -566px;
+}
+
+.maneuver-list .adp-maneuver.turn-sharp-right {
+    background-position: 0 -582px;
+}
+
+.maneuver-list .adp-maneuver.ramp-left {
+    background-position: 0 -598px;
+}
+
+.maneuver-list .adp-maneuver.ferry {
+    background-position: 0 -614px;
+}
+
+/* endregion Google Maps */
+
+/* endregion Route direction action icon */
+
+/* endregion Map routing */
+
+/* region Map extensions */
+/* region Legend */
+.map-legend {
+    position:         absolute;
+    top:              140px;
+    right:            4px;
+    width:            24px;
+    height:           24px;
+    padding:          1px;
+    background-color: #1f262a;
+    border-radius:    2em;
+    /*background: url(../images/maps/legend.png) no-repeat center;*/
+}
+
+.map-legend:hover,
+.map-legend:active,
+.map-legend:focus {
+    /*
+     * The use of !important is allowed (and, as John Snook says, recommended)
+     * in the "state" rule.
+     */
+    background-color: #1f262a !important;
+    outline:          none !important; /* Remove that blue outline in Chrome. */
+}
+
+.map-legend-icon {
+    background-color: #1f262a;
+    color:            #fff;
+}
+
+.map-legend-popover .popover-content {
+    padding: 4px;
+}
+
+.map-legend-popover .legend-list {
+    width:      112px;
+    height:     140px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.legend-list .row {
+    margin-left: 0;
+}
+
+/* endregion Legend */
+
+/* region Date range slider */
+.map-drs {
+    position:         absolute;
+    bottom:           3.2em;
+    left:             0;
+    right:            0;
+    min-width:        4em;
+    min-height:       2em;
+    padding:          .4em;
+    margin:           0 .4em;
+    border-radius:    4px;
+    background-color: rgba(166, 166, 166, 0.3);
+}
+
+.map-drs > * {
+    display:        inline-block;
+    vertical-align: middle;
+}
+
+.map-drs-latestevent {
+    margin-top:    .4em;
+    margin-bottom: 0;
+    line-height:   1.82857143;
+    white-space:   nowrap;
+    cursor:        pointer;
+}
+
+.map-drs-latestevent label {
+    font-weight: bold;
+}
+
+.map-drs-latestevent .checkbox {
+    cursor: pointer;
+}
+
+.map-drs-latestevent .checkbox-name {
+    display:       inline-block;
+    width:         4em;
+    overflow:      hidden;
+    white-space:   nowrap;
+    text-overflow: ellipsis;
+}
+
+.map-drs-slider {
+    width:       -moz-calc(100% - 18em);
+    width:       -webkit-calc(100% - 18em);
+    width:       calc(100% - 18em);
+    margin-left: 2em;
+}
+
+.map-drs-presetintervals {
+    width:       8em;
+    margin-left: 2em;
+}
+
+.map-drs-handlelabel {
+    display:    inline-block;
+    position:   absolute;
+    top:        -3.2em;
+    padding:    .4em;
+    text-align: center;
+}
+
+.label.map-drs-handlelabel {
+    font-size: 0.8em;
+}
+
+.map-drs-handlelabel-lower {
+    left: -10em;
+}
+
+.map-drs-handlelabel-upper {
+    left: .4em;
+}
+
+.map-drs-handlelabel > * {
+    display:        inline-block;
+    vertical-align: middle;
+}
+
+.map-drs-handlelabel-text {
+    min-width: 7.6em;
+}
+
+.map-drs-handlelabel-controls {
+    font-size: 12px;
+}
+
+.map-drs-handlelabel-controls-icon {
+    margin-left: 4px;
+    cursor:      pointer;
+}
+
+.map-drs-handlelabel-controls-datetimepicker {
+    position: absolute;
+    top:      0;
+    left:     0;
+}
+
+.noUi-connect {
+    background: #989898;
+}
+
+.noUi-value {
+    font-size: 80%;
+}
+
+/* endregion Date range slider */
+
+/* region Coordinates display */
+.map-coordinatesdisplay {
+    box-sizing:       border-box;
+    position:         absolute;
+    top:              0;
+    left:             0;
+    width:            auto;
+    height:           2rem;
+    border-radius:    .2rem;
+    background-color: #1f262a;
+    color:            #fff;
+    text-align:       center;
+    opacity:          0.66;
+}
+
+/* endregion Coordinates display */
+/* endregion Map extensions */
+
+/* region Maps printing */
+.mp-top-15 {
+    margin-top: 1.5em;
+}
+
+.lead.mp-directions {
+    margin-left: 24px;
+}
+
+.mp-screenshot {
+    position: relative;
+}
+
+.mp-maneuver {
+    padding:       4px;
+    border-bottom: 1px solid #ddd;
+    font-weight:   bold;
+}
+
+.mp-maneuver-icon {
+    margin-right: 4px;
+}
+
+/* endregion Maps printing */
+
+/* region RTL support */
+.k-rtl .mc-panel-name,
+.k-rtl .checkbox-name,
+.k-rtl .radio-name {
+    margin: 0 1.6em 0 .4em;
+}
+
+.k-rtl .k-autocomplete.waypoint-input {
+    margin-right: .4ex;
+}
+
+.k-rtl .waypoint-item .waypoint-input-clear {
+    right: auto;
+    left:  4px;
+}
+
+.k-rtl .col-route-features label,
+.k-rtl .map-drs-latestevent label {
+    padding-left: 0;
+}
+
+.k-rtl .route-summary-text dt {
+    width: auto;
+}
+
+.k-rtl .route-summary-text dd {
+    margin-right: 4em;
+    direction:    ltr;
+}
+
+.k-rtl .map-drs-slider,
+.k-rtl .map-drs-presetintervals {
+    margin-right: 2em;
+    margin-left:  0;
+}
+
+/* endregion RTL support */
+
+/* region Kendo UI Q1 2016 patch */
+.mc-panel .k-treeview .k-checkbox-label:before {
+    top: -.2em;
+}
+
+.mc-panel .k-treeview .k-checkbox:indeterminate + .k-checkbox-label:after {
+    top: .4em;
+}
+
+/* endregion Kendo UI Q1 2016 patch */

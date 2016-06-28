@@ -1,0 +1,167 @@
+/* Theme G */
+@import url('../css/kendo/kendo.silver.min.css');
+
+@primary: #e3a84d;
+@primary-alt: #fec34d;
+@secondary: #e89c2a;
+@secondary-text: #000;
+@body-bg: #edecef;
+@text-color: #000;
+
+body {
+  background-color: @body-bg;
+}
+
+/* Main text color */
+option,
+.navbar-nav > li > .dropdown-menu .menu-column-content .item,
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-text,
+.about-window > .k-window-titlebar .about-version,
+ul.gauge-legend li > span,
+.k-input, input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:hover, .k-textbox > input, .k-multiselect-wrap {
+  color: @text-color;
+}
+
+/* Here we set the "selection" color. */
+a, a:visited, .ref-icon {
+  color: @primary;
+}
+
+/* adjust Kendo's silver theme selection styles */
+.k-state-selected,
+.k-state-selected:link,
+.k-state-selected:visited,
+.k-list > .k-state-selected,
+.k-list > .k-state-highlight,
+.k-panel > .k-state-selected,
+.k-ghost-splitbar-vertical,
+.k-ghost-splitbar-horizontal,
+.k-draghandle.k-state-selected:hover,
+.k-scheduler .k-scheduler-toolbar .k-state-selected,
+.k-scheduler .k-today.k-state-selected,
+.k-marquee-color {
+  background-color: @primary-alt;
+  border-color:     @primary-alt;
+  color:            @secondary-text;
+}
+
+.k-state-focused.k-state-selected,
+.k-list > .k-state-focused.k-state-selected,
+.k-listview > .k-state-focused.k-state-selected,
+td.k-state-focused.k-state-selected {
+  -webkit-box-shadow: none;
+  box-shadow:         none;
+}
+
+.search-dropdown-items ul li:hover {
+  color:            #fff;
+  background-color: @primary-alt;
+}
+
+/* Menu */
+ul.nav li.dropdown > a, ul.nav .search > .glyphicon {
+  color: #8c8b8c;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .item:hover {
+  color: @primary-alt;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-header-text {
+  border-bottom: 2px solid #ba6d2f;
+}
+
+.alarm-notification {
+  background-image: url('../images/verticalseparatordotsorange-c.png');
+}
+
+.navbar > .container .navbar-brand {
+  margin-top: 2px;
+  width:      168px;
+  height:     47px;
+}
+
+/* also prohibit smaller chunks than this for the logo */
+.navbar .col-sm-2 {
+  min-width: 170px;
+}
+
+.alerts {
+  border-top-color: #ba6d2f;
+  background-color: #d79249;
+  background:       none, linear-gradient(to bottom, #f4b862, #ba6d2f); /* W3C */
+}
+
+.alarmbar-collapse-background,
+.alarmbar-collapse-button {
+  background-color: #ba6d2f;
+}
+
+/* AlarmStatus red and "yellow" */
+ul.alarm-items .alarmstatus-not-all-acknowledged,
+ul.alarm-items .alarmstatus-all-acknowledged {
+  background-color: #b4471f;
+  background:       none, linear-gradient(to bottom, #dd5928, #8f3718); /* W3C */
+  border:           none;
+}
+
+#menuBar .navbar-nav > li > a > .badge {
+  background-color: #efb25b;
+  background:       none, linear-gradient(to bottom, #f7cc90, @secondary);
+  font-size:        1em;
+}
+
+#alarmBar .badge {
+  background: transparent;
+}
+
+.widget-header {
+  border-color:     #9ea2a8;
+  background-color: @secondary;
+  background:       none, linear-gradient(to bottom, #f7cc90, @secondary); /* W3C */
+  color:            @secondary-text;
+}
+
+.widget-content {
+  border-color: #9fa3a9;
+}
+
+.draggable .widget .widget-header {
+  background: url('../images/widget-header-handle.png') 3px 3px no-repeat, @secondary linear-gradient(to bottom, #f7cc90, @secondary) 0 0;
+}
+
+/* Search */
+.search .search-dropdown .items ul li:hover {
+  background-color: #efb25b;
+}
+
+/* Wizard styles - remove border from buttons */
+.k-ext-dialog-buttons .btn,
+.wizard-steps > a,
+.widget-next-btn-wrapper .btn {
+  border: none;
+}
+
+/* wizard styles (active) */
+.k-ext-dialog-buttons .btn:hover,
+.wizard-steps > a.active,
+.k-ext-dialog-buttons .btn:hover,
+.widget-next-btn-wrapper .btn:hover {
+  background-color: #cb8f5b;
+  border-color:     #cb8f5b;
+  background:       none, linear-gradient(to bottom, #f7cc90, #c77c2b); /* W3C */
+}
+
+/* Login */
+#loginDialog {
+  background: #fff url('../images/logos/login-default.png') no-repeat scroll center 40px;
+}
+
+#footer {
+  background-color: #464646;
+}
+
+#footer a, #footer .navbar-text {
+  color: #fff;
+}
+

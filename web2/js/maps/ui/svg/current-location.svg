@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 1560 1560" width="18" height="18">
+<defs>
+    <filter id="glow">
+        <feGaussianBlur stdDeviation="70" result="glow"/>
+    </filter>
+</defs>
+    <circle cx="780" cy="780" r="700" style="fill: #fff; stroke: none; filter: url(#glow);"/>
+    <circle fill="#149dea" stroke="none" cx="780" cy="780" r="560"/>
+</svg>

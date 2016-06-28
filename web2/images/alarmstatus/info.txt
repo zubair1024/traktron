@@ -1,0 +1,3 @@
+alarmStateValue.acknowledged=images/alarmstatus/acknowledged.png
+alarmStateValue.active=images/alarmstatus/active.png
+alarmStateValue.normal=images/alarmstatus/normal.png

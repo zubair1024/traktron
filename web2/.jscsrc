@@ -1,0 +1,30 @@
+{
+  "preset"                                : "airbnb",
+  "disallowSpaceAfterObjectKeys"          : {
+    "allExcept": [
+      "multiline"
+    ]
+  },
+  "maximumLineLength"                     : {
+    "value"    : 100,
+    "allExcept": [
+      "urlComments"
+    ]
+  },
+  "requireCamelCaseOrUpperCaseIdentifiers": {
+    "allExcept": [
+      "webpack_public_path",
+      "non_webpack_require",
+      "google_maps_callback",
+      "noUiSlider_pips",
+      "app_id",
+      "app_code",
+      "formatted_address"
+    ]
+  },
+  "requireDollarBeforejQueryAssignment"   : false,
+  "excludeFiles"                          : [
+    "js/maps/bundles",
+    "js/maps/viewers/googlemaps"
+  ]
+}

@@ -1,0 +1,170 @@
+/* Theme E */
+@import url('../css/kendo/kendo.silver.min.css');
+
+@primary: #000;
+@primary-alt: #ccc;
+// #9ea2a8
+@secondary: #9ea2a8;
+@secondary-text: #000;
+@body-bg: #edecef;
+@text-color: #000;
+
+body {
+  background-color: @body-bg;
+}
+
+/* Here we set the "selection" color. */
+a, a:visited, .ref-icon {
+  color: @primary;
+}
+
+/* Main text color */
+option,
+.navbar-nav > li > .dropdown-menu .menu-column-content .item,
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-text,
+.about-window > .k-window-titlebar .about-version,
+ul.gauge-legend li > span,
+.k-input, input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:hover, .k-textbox > input, .k-multiselect-wrap {
+  color: @text-color;
+}
+
+/* adjust Kendo's silver theme selection styles */
+.k-state-selected,
+.k-state-selected:link,
+.k-state-selected:visited,
+.k-list > .k-state-selected,
+.k-list > .k-state-highlight,
+.k-panel > .k-state-selected,
+.k-ghost-splitbar-vertical,
+.k-ghost-splitbar-horizontal,
+.k-draghandle.k-state-selected:hover,
+.k-scheduler .k-scheduler-toolbar .k-state-selected,
+.k-scheduler .k-today.k-state-selected,
+.k-marquee-color {
+  background-color: @primary-alt;
+  border-color:     @primary-alt;
+  color:            @secondary-text;
+}
+
+.k-state-focused.k-state-selected,
+.k-list > .k-state-focused.k-state-selected,
+.k-listview > .k-state-focused.k-state-selected,
+td.k-state-focused.k-state-selected {
+  -webkit-box-shadow: none;
+  box-shadow:         none;
+}
+
+.search-dropdown-items ul li:hover {
+  color:            @primary;
+  background-color: @primary-alt;
+}
+
+/* Menu */
+ul.nav li.dropdown > a, ul.nav .search > .glyphicon {
+  color: #8c8b8c;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .item:hover {
+  color: @primary;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-header-text {
+  border-bottom: 2px solid @primary-alt;
+}
+
+.alarm-notification {
+  background-image: url('../images/verticalseparatordotsorange-c.png');
+}
+
+.navbar > .container .navbar-brand {
+  /* background: url('../images/logos/login-default.png') top left no-repeat;*/
+  margin-top: 2px;
+  width:      168px;
+  height:     47px;
+}
+
+/* also prohibit smaller chunks than this for the logo */
+.navbar .col-sm-2 {
+  min-width: 170px;
+}
+
+.alerts {
+  border-top-color: #666;
+  background-color: #3e3e3e;
+  background:       none, linear-gradient(to bottom, #666, #010101); /* W3C */
+}
+
+.alarmbar-collapse-background,
+.alarmbar-collapse-button {
+  background-color: #666;
+}
+
+/* AlarmStatus red and "yellow" */
+ul.alarm-items .alarmstatus-not-all-acknowledged,
+ul.alarm-items .alarmstatus-all-acknowledged {
+  background-color: #5f6167;
+  background:       none, linear-gradient(to bottom, #777c88, #484848); /* W3C */
+  border:           none;
+}
+
+.widget-header {
+  border-color:     @secondary;
+  background-color: @secondary;
+  background:       none, linear-gradient(to bottom, #e5e5e7, @secondary); /* W3C */
+  color:            @secondary-text;
+}
+
+.widget-content {
+  border-color: #9fa3a9;
+}
+
+.draggable .widget .widget-header {
+  background: url('../images/widget-header-handle.png') 3px 3px no-repeat, @secondary linear-gradient(to bottom, #e5e5e7, @secondary) 0 0;
+}
+
+/* Search */
+.search .search-dropdown .items ul li:hover {
+  background-color: @primary;
+}
+
+/* Wizard styles - remove border from buttons */
+.k-ext-dialog-buttons .btn,
+.wizard-steps > a,
+.widget-next-btn-wrapper .btn {
+  border: none;
+}
+
+/* wizard styles (active) */
+.k-ext-dialog-buttons .btn:hover,
+.wizard-steps > a.active,
+.k-ext-dialog-buttons .btn:hover,
+.widget-next-btn-wrapper .btn:hover {
+  background-color: #5f6167;
+  border-color:     #5f6167;
+  background:       none, linear-gradient(to bottom, #777c88, #484848); /* W3C */
+}
+
+/* Login */
+#loginDialog {
+  background: #fff url('../images/logos/login-default.png') no-repeat scroll center 40px;
+}
+
+#footer {
+  background-color: @primary;
+}
+
+#footer a, #footer .navbar-text {
+  color: #fff;
+}
+
+#alarmBar .badge {
+  background: transparent;
+}
+
+.alerts .nav {
+  padding-bottom: 10px;
+}
+
+.alarmbar-collapse-background {
+  height: 2px;
+}

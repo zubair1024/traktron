@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row mp-top-15">
+        <img class="mp-logo" />
+
+        <span class="lead mp-directions hidden">
+            ${directions.startingPoint} to ${directions.destination}
+        </span>
+    </div>
+    <div class="row mp-top-15">
+        <div class="mp-screenshot">
+        </div>
+    </div>
+    <div class="row mp-top-15">
+        <div class="col-sm-6 mp-directions hidden">
+            <div class="row mp-top-15">
+                <h4>${directions.startingPoint}</h4>
+            </div>
+            <div class="row mp-top-15">
+                <div class="col-sm-12 maneuver-list">
+                    <% _.forEach(directions.maneuvers, function (maneuver, i) { %>
+                    <div class="row mp-maneuver">
+                        <div class="col-sm-12">
+                            <img class="mp-maneuver-icon"
+                                 data-iconpath="images/maps/icons/maneuver/${maneuver.baseCssAction}/${maneuver.action}.png" />
+                            ${i + 1}. ${maneuver.instruction}
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="row mp-top-15">
+                <h4>${directions.destination}</h4>
+            </div>
+        </div>
+    </div>
+</div>

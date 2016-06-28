@@ -1,0 +1,26 @@
+.multiselect-container {
+    padding: 0 15px;
+}
+
+.multiselect-container.row {
+    display: inline-block;
+}
+
+.multiselect-listview {
+    overflow: auto;
+    width:    auto;
+}
+
+.multiselect-button-panel {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.multiselect-button-panel > button {
+    margin-bottom: .5em;
+    width:         80%
+}
+
+.multiselect-row {
+    padding: 0.25em 0;
+}

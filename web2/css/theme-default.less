@@ -1,0 +1,93 @@
+/* ROAM */
+@import 'mixins/panels.less';
+@import 'mixins/gradients.less';
+@import url('../css/kendo/kendo.default.min.css');
+
+@primary: #ce7415;
+@primary-dark: darken(@primary, 20%);
+@title-heading-bg: hsv(192, 50%, 86%);
+@title-heading-bg-dark: hsv(hue(@title-heading-bg), saturation(@title-heading-bg), 70%);
+@title-heading-text: #343738;
+@body-bg: #d8d9d3;
+@text-color: #000;
+
+/* Add retina resolution images here for the logos. */
+@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-resolution: 192dpi), all and (min-resolution: 2dppx) {
+  .navbar > .container .navbar-brand {
+    background-image: url('../images/logos/logo-default@2x.png');
+  }
+
+  #loginDialog {
+    background-image: url('../images/logos/login-default@2x.png');
+  }
+}
+
+body {
+  background-color: @body-bg;
+}
+
+/* Main text color */
+option,
+.navbar-nav > li > .dropdown-menu .menu-column-content .item,
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-text,
+.about-window > .k-window-titlebar .about-version,
+ul.gauge-legend li > span,
+.k-input, input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:hover, .k-textbox > input, .k-multiselect-wrap {
+  color: @text-color;
+}
+
+/* Here we set the "selection" color. */
+a,
+a:visited,
+.ref-icon,
+ul.nav .search > .glyphicon,
+.navbar-default .navbar-nav > li > a {
+  color: @primary;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-header-text {
+  border-bottom-color: @title-heading-bg;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .item:hover {
+  color: @title-heading-bg;
+}
+
+.widget-header {
+  border-color:     @title-heading-bg-dark;
+  background-color: @title-heading-bg-dark;
+  background:       none, linear-gradient(to bottom, @title-heading-bg, @title-heading-bg-dark); /* W3C */
+  color:            @title-heading-text;
+}
+
+.draggable .widget .widget-header {
+  background: url('../images/widget-header-handle.png') no-repeat 3px 3px, @title-heading-bg-dark linear-gradient(to bottom, @title-heading-bg, @title-heading-bg-dark) 0 0;
+}
+
+.search-dropdown-items ul li:hover,
+.search-dropdown-items ul li.selected {
+  color:            #fff;
+  background-color: @primary;
+}
+
+/* wizard styles */
+.k-ext-dialog-buttons .btn:hover, .widget-next-btn-wrapper .btn:hover,
+.wizard-steps > a.active {
+  border-color:     #af5b00;
+  background-color: #b15d00;
+  background:       none, linear-gradient(to bottom, #df9037, #b15d00);
+}
+
+/* adjust Bootstrap's panel colors */
+.panel {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+//
+//.panel-default {
+//  .panel-variant(@title-heading-bg-dark; @title-heading-text; @title-heading-bg-dark; @title-heading-bg-dark);
+//}
+//
+//.panel-default > .panel-heading {
+//  #gradient > .vertical(@start-color: @title-heading-bg; @end-color: @title-heading-bg-dark);
+//}

@@ -1,0 +1,98 @@
+/* Dewa */
+@import url('../css/kendo/kendo.metro.min.css');
+
+@primary: #7ea700;
+@primary-alt: #2b7523;
+@secondary: #7d9654;
+@secondary-text: #343738;
+@body-bg: #d8d9d3;
+@text-color: #000;
+
+body {
+  background-color: @body-bg;
+}
+
+/* Main text color */
+option,
+.navbar-nav > li > .dropdown-menu .menu-column-content .item,
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-text,
+.about-window > .k-window-titlebar .about-version,
+ul.gauge-legend li > span,
+.k-input, input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:hover, .k-textbox > input, .k-multiselect-wrap {
+  color: @text-color;
+}
+
+/* Here we set the "selection" color. */
+a, a:visited, .ref-icon {
+  color: @primary;
+}
+
+.search-dropdown-items ul li:hover {
+  color:            #fff;
+  background-color: @primary;
+}
+
+/* Menu */
+ul.nav li.dropdown > a, ul.nav .search > .glyphicon, #footer a {
+  color: #758c4f;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .item:hover {
+  color: #176900;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-header-text {
+  border-bottom: 2px solid #6a8642;
+}
+
+.alarm-notification {
+  background-image: url('../images/verticalseparatordotsorange-c.png');
+}
+
+.navbar > .container .navbar-brand {
+  background:  url('../images/logos/logo-a.png') top left no-repeat;
+  margin-top:  5px;
+  margin-left: 6px;
+  width:       203px;
+  height:      50px;
+}
+
+/* also prohibit smaller chunks than this for the logo */
+.navbar .col-sm-2 {
+  min-width: 203px;
+}
+
+.alerts {
+  border-top-color: @primary-alt;
+  background-color: @primary-alt;
+  background:       none, linear-gradient(to bottom, #3ea834, @primary-alt); /* W3C */
+}
+
+.alarmbar-collapse-background,
+.alarmbar-collapse-button {
+  background-color: @primary-alt;
+}
+
+.widget-header {
+  border-color:     @secondary;
+  background-color: @secondary;
+  background:       none, linear-gradient(to bottom, #a2c875, @secondary); /* W3C */
+  color:            @secondary-text;
+}
+
+.draggable .widget .widget-header {
+  background: url('../images/widget-header-handle.png') 3px 3px no-repeat, linear-gradient(to bottom, #a2c875, @secondary) 0 0;
+}
+
+/* wizard styles */
+.k-ext-dialog-buttons .btn:hover, .widget-next-btn-wrapper .btn:hover,
+.wizard-steps > a.active {
+  background-color: @primary-alt;
+  border-color:     @primary-alt;
+  background:       none, linear-gradient(to bottom, #3ea834, @primary-alt); /* W3C */
+}
+
+/* Login */
+#loginDialog {
+  background: #ccc url('../images/logos/login-a.png') no-repeat center 40px;
+}

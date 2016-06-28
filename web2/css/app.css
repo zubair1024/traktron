@@ -1,0 +1,1873 @@
+body {
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, 'Lucida Grande', Arial, sans-serif;
+    font-size:   12px;
+}
+
+/*region Sticky footer styles */
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer aka ViewPort */
+#content-wrap {
+    min-height: 100%;
+    height:     auto;
+    /* Negative indent footer by its height */
+    margin:     0 auto -70px;
+    /* Pad bottom by footer height */
+    padding:    0 0 70px;
+    display:    none;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height:  70px;
+    display: none;
+    z-index: 1;
+}
+
+/* adjust content area's padding and asset's tree fixed position */
+#navigationArea {
+    position:      fixed;
+    float:         none;
+    padding-right: 0;
+    z-index:       2;
+}
+
+#sideBar {
+    padding-left: 0;
+    min-height:   60px;
+}
+
+#mainArea, #sideBar {
+    /* this is just for proper D&D */
+    min-height: 60px;
+}
+
+/*region fullscreen settings for single widget: occupy 100% of the space */
+body > #mainArea > .widget {
+    padding:       15px;
+    margin-bottom: 0;
+}
+
+body #mainArea,
+body > #mainArea > .widget {
+    height: 100%;
+}
+
+/*endregion fullscreen settings for single widget: occupy 100% of the space */
+
+@media (max-width: 767px) {
+    #navigationArea {
+        padding-right: 15px;
+        position:      relative;
+    }
+
+    #sideBar {
+        padding-left: 15px;
+    }
+}
+
+/*endregion Sticky footer styles */
+
+a, a:visited {
+    text-decoration: none;
+    font-weight:     bold;
+}
+
+/* This style is for differentiating between selected color - e.g. in a grid row - and line color. */
+.k-state-selected a, .k-state-selected a:visited, .k-state-selected .ref-icon, .k-tooltip {
+    color: #fff;
+}
+
+/* Don't make grid column heads bold. */
+.k-grid-header .k-header a {
+    font-weight: normal;
+}
+
+/* Draggable cursor for the grid headers */
+.k-grid-header th.k-header, .k-grid-header th.k-header > .k-link {
+    cursor: move;
+}
+
+a.img {
+    border: 0;
+}
+
+ul, ol {
+    padding: 0;
+    margin:  0;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+/*region Navigation Bar */
+.navbar .container {
+    padding: 0;
+    width:   auto;
+}
+
+.navbar > .container > .row {
+    background-color: #fff;
+    padding:          0 15px;
+}
+
+/* make room for navigation bar */
+#content-wrap > .container {
+    padding: 125px 15px 0;
+    width:   auto;
+}
+
+.navbar > .container .navbar-brand {
+    margin-left:     15px;
+    margin-right:    30px;
+    margin-top:      4px;
+    background:      url('../images/logos/logo-default.png') top left no-repeat;
+    background-size: 134px 47px;
+    width:           134px;
+    height:          47px;
+}
+
+/* Define a shadow for all menu dropdowns and toast notifications */
+.navbar-nav > li > .dropdown-menu,
+.search .search-dropdown,
+div.k-window.about-window,
+.toast {
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-fixed-top {
+    background-color: transparent;
+    border-width:     0;
+}
+
+.navbar-nav {
+    margin-top: 12px;
+}
+
+/*region adjust Bootstrap GlyphIcons and Badges */
+ul.nav .glyphicon {
+    font-size:      1.5em;
+    margin-right:   0.25em;
+    margin-top:     -3px;
+    vertical-align: middle;
+}
+
+ul.nav .settings > .glyphicon {
+    font-size: 1.9em;
+}
+
+ul.nav .search > .glyphicon {
+    padding:   0;
+    cursor:    pointer;
+    font-size: 1em;
+}
+
+/*endregion adjust Bootstrap GlyphIcons and Badges */
+
+.navbar-default .navbar-nav > li > a {
+    padding:        6px 8px 6px 8px;
+    font-size:      0.8em;
+    text-transform: uppercase;
+}
+
+/* display menu text, even when it is collapsed */
+.navbar-default .navbar-nav > li > a:hover span.menu-item-text,
+.navbar-default .navbar-nav > li > a:focus span.menu-item-text {
+    display: inline;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #666;
+}
+
+/* the color of glyphicons and carets on the right side of the menuBar */
+.navbar-default .navbar-nav.navbar-right > li > a {
+    color: #999;
+}
+
+.navbar-default .navbar-nav > li > a .welcome-text,
+.navbar-default .navbar-nav > li > a .welcome-username {
+    color:          #666;
+    font-size:      1.2em;
+    text-transform: none;
+}
+
+.navbar-default .navbar-nav > li > a:hover .welcome-username {
+    text-decoration: underline;
+}
+
+.navbar-default .navbar-nav > li > a .welcome-text {
+    font-weight: normal;
+}
+
+#menuBar .navbar-nav > li > a > .badge {
+    background-color: #bc2328;
+    background:       none, linear-gradient(to bottom, #f20000, #b50000);
+    font-size:        1em;
+}
+
+@media (min-width: 768px) {
+
+    /*region badge adjustments */
+    #menuBar .navbar-nav > li > a > .badge {
+        position: absolute;
+        top:      -6px;
+        left:     14px;
+    }
+
+    #menuBar .navbar-nav li.dropdown.hover span.badge,
+    #menuBar .navbar-nav > .open span.badge {
+        top:  -7px;
+        left: 13px;
+    }
+
+    /* align "Dismiss All" link on the right properly to the rest of the menu. */
+    #menuBar .navbar-nav > li > .dropdown-menu .navbar-right {
+        margin-right: inherit;
+    }
+
+    /*endregion badge adjustments */
+    .navbar-default .navbar-nav li.dropdown.hover > a,
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        background-color:        #fff;
+        padding:                 5px 7px 6px 7px;
+        border-left:             1px solid #666;
+        border-right:            1px solid #666;
+        border-top:              1px solid #666;
+        border-top-left-radius:  5px;
+        border-top-right-radius: 5px;
+        border-bottom:           0 none;
+        z-index:                 510;
+    }
+
+    .navbar-nav > li > .dropdown-menu {
+        background-color: #fff;
+        border:           1px solid #666;
+        border-radius:    5px;
+        z-index:          500;
+        top:              31px;
+        left:             -60px;
+        white-space:      nowrap;
+        padding-bottom:   15px;
+        padding-right:    10px;
+        position:         absolute;
+    }
+
+    .navbar-nav > li > .dropdown-menu.notificationsmenu {
+        overflow-y: auto;
+    }
+
+    .navbar-nav.navbar-right:last-child {
+        margin-right: 15px;
+    }
+
+    /* Settings menu & Help menu positioning */
+    .navbar-nav.navbar-right > li > .dropdown-menu.settingsmenu,
+    .navbar-nav.navbar-right > li > .dropdown-menu.helpmenu {
+        left:  auto;
+        right: -30px;
+    }
+
+    /* dropdown on hover, not only on click */
+    .navbar-nav li.dropdown:hover > ul.dropdown-menu {
+        /*display: block;*/
+    }
+}
+
+/* Styles for the Menu Dropdowns*/
+.navbar-nav > li > .dropdown-menu ul {
+    list-style: none outside none;
+}
+
+.navbar-nav > li > .dropdown-menu > li {
+    padding:        17px 7px 17px 16px;
+    vertical-align: top;
+    width:          250px;
+}
+
+.navbar-nav > li > .dropdown-menu.notificationsmenu > li {
+    width: 300px;
+}
+
+.navbar-nav > li > .dropdown-menu > li.no-items {
+    padding:   5px 0 0 7px;
+    width:     180px;
+    font-size: 12px;
+    color:     #44474a;
+}
+
+/* special handling for "panes" menu */
+.navbar-nav > li > .dropdown-menu.panesmenu {
+    padding:     10px;
+    width:       210px;
+    white-space: normal;
+}
+
+.navbar-nav > li > .dropdown-menu.panesmenu > li {
+    width:   60px;
+    padding: 10px;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-header-text {
+    border-bottom: 2px solid;
+    float:         inherit;
+    width:         100%;
+    display:       inline-block;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-header-text > span {
+    color:          #666;
+    font-size:      16px;
+    font-weight:    bold;
+    line-height:    20px;
+    text-transform: uppercase;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content {
+    color:       #666;
+    font-size:   12px;
+    padding:     25px 0 0 20px;
+    white-space: normal;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content-glyphicon {
+    padding: 0 0 0 20px;
+}
+
+/*.navbar-nav > li > .dropdown-menu.notificationsmenu .menu-column-content {
+    padding-top: 30px;
+}*/
+
+.navbar-nav > li > .dropdown-menu .menu-column-content ul {
+    list-style: none outside none;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .item {
+    cursor:      pointer;
+    font-weight: normal;
+    line-height: 2.25em;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .item:hover {
+    text-decoration: underline;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-text {
+    font-weight: bold;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-time {
+    float:         right;
+    padding-right: 10px;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-action {
+    padding-left: 10px;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content .notif-description {
+    font-weight: normal;
+}
+
+/* Style for the icons in the pane selection menu. */
+.menu-column-header-icon {
+    float:               left;
+    padding-left:        20px;
+    width:               100%;
+    background-position: left 1px;
+    background-size:     16px 16px;
+    background-repeat:   no-repeat;
+}
+
+.menu-column-header-icon.megamenu-edit {
+    background-image: url('../images/icons/32px/Edition-35.png');
+}
+
+.k-ie8 .menu-column-header-icon.megamenu-edit {
+    background-image: url('../images/icons/16px/Edition-35.png');
+}
+
+.menu-column-header-icon.megamenu-report {
+    background-image: url('../images/icons/32px/Business-72.png');
+}
+
+.k-ie8 .menu-column-header-icon.megamenu-report {
+    background-image: url('../images/icons/16px/Business-72.png');
+}
+
+.menu-column-header-glyphicon {
+    padding-right: 20px;
+}
+
+.menu-column-header-glyphicon > span.glyphicon {
+    float:       left;
+    font-size:   1.1em;
+    padding-top: .4em;
+}
+
+.menu-column-header-icon.settingsmenu {
+    background-image: url('../images/icons/32px/Setting-7.png');
+}
+
+.k-ie8 .menu-column-header-icon.settingsmenu {
+    background-image: url('../images/icons/16px/Setting-7.png');
+}
+
+.menu-column-header-icon.helpmenu {
+    background-image: url('../images/icons/32px/Interface-56.png');
+}
+
+.k-ie8 .menu-column-header-icon.helpmenu {
+    background-image: url('../images/icons/16px/Interface-56.png');
+}
+
+.menu-column-header-icon.alarmsmenu-active {
+    background-image: url('../images/alarmstatus/active.png');
+}
+
+.menu-column-header-icon.alarmsmenu-acknowledged {
+    background-image: url('../images/alarmstatus/acknowledged.png');
+}
+
+.menu-column-header-icon.alarmsmenu-normal {
+    background-image: url('../images/alarmstatus/normal.png');
+}
+
+.menu-column-header-icon.notificationsmenu-events {
+    background-image: url('../images/icon-notifications-events.png');
+}
+
+.menu-column-header-icon.notificationsmenu-errors {
+    background-image: url('../images/icon-notifications-errors.png');
+}
+
+.menu-column-header-icon.notificationsmenu-alarms {
+    background-image: url('../images/icon-notifications-alarms.png');
+}
+
+/* Size of the Change Layout icons */
+.menu-column-header-icon.panesmenu1 {
+    background: url('../images/icon-layout1.png') top left no-repeat;
+}
+
+.menu-column-header-icon.panesmenu2 {
+    background: url('../images/icon-layout2.png') top left no-repeat;
+}
+
+.menu-column-header-icon.panesmenu3 {
+    background: url('../images/icon-layout3.png') top left no-repeat;
+}
+
+.menu-column-header-icon.panesmenu4 {
+    background: url('../images/icon-layout4.png') top left no-repeat;
+}
+
+.menu-column-header-icon.panesmenu5 {
+    background: url('../images/icon-layout5.png') top left no-repeat;
+}
+
+.menu-column-header-icon.panesmenu6 {
+    background: url('../images/icon-layout6.png') top left no-repeat;
+}
+
+.menu-column-header-icon.panesmenu1,
+.menu-column-header-icon.panesmenu2,
+.menu-column-header-icon.panesmenu3,
+.menu-column-header-icon.panesmenu4,
+.menu-column-header-icon.panesmenu5,
+.menu-column-header-icon.panesmenu6 {
+    width:  38px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.menu-column-header-icon.panesmenu1.selected,
+.menu-column-header-icon.panesmenu2.selected,
+.menu-column-header-icon.panesmenu3.selected,
+.menu-column-header-icon.panesmenu4.selected,
+.menu-column-header-icon.panesmenu5.selected,
+.menu-column-header-icon.panesmenu6.selected {
+    background-position: bottom left;
+}
+
+/* Style Helper for Kendo Menus inside of dropdown */
+#menuBar .k-menu {
+    border:     none;
+    background: none;
+}
+
+.navbar-nav > li > .dropdown-menu .menu-column-content > div > .k-menu > .k-item > .k-link {
+    padding-left: 0;
+}
+
+/*endregion Navigation Bar */
+
+/*region Footer */
+#footer {
+    background-color: #000;
+    border-radius:    0;
+    border:           none;
+    margin-bottom:    0;
+}
+
+#footer .navbar-collapse {
+    padding-right: 0;
+}
+
+#footer .navbar-nav {
+    margin-top: 0;
+}
+
+#footer .navbar-nav li a {
+    line-height:  70px;
+    margin-right: 35px;
+    padding:      0;
+}
+
+#footer .navbar-text {
+    color:     #bbb;
+    margin:    31px 15px 0 0;
+    font-size: 0.8em;
+}
+
+#footer .navbar-nav .navbar-brand {
+    width:           154px;
+    height:          52px;
+    margin:          5px 0;
+    background:      url('../images/logos/footer-default.png') top left no-repeat;
+    background-size: 154px 52px;
+}
+
+/* Add retina resolution images here for the footer logo. */
+@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-resolution: 192dpi), all and (min-resolution: 2dppx) {
+    #footer .navbar-nav .navbar-brand {
+        background-image: url('../images/logos/footer-default@2x.png');
+    }
+}
+
+/*endregion Footer */
+
+#navigationArea .widget-content {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+div.k-treeview {
+    /* the icon labels may wrap in the treeView */
+    white-space: normal;
+    /* Do not create 2 scrollBars in Chrome */
+    overflow:    inherit;
+}
+
+.k-treeview .k-icon.k-plus, .k-treeview .k-icon.k-minus {
+    vertical-align: top;
+    margin-top:     4px;
+}
+
+.treeview-node-indented {
+    display:             inline-block;
+    background-repeat:   no-repeat;
+    background-position: top left;
+    padding-left:        20px;
+    min-height:          16px;
+    word-break:          break-all;
+}
+
+/* enrich Bootstrap rule with changed word break rule */
+.tooltip-inner {
+    word-break: break-all;
+}
+
+/* enrich Bootstrap rule with changed word break rule */
+.list-unstyled li {
+    word-wrap: break-word;
+}
+
+/* Always show mouse pointer in treeView. */
+.k-item .k-in {
+    cursor: pointer !important;
+}
+
+/*region Search */
+.search {
+    background-color: #edeeef;
+    border-radius:    4px;
+    padding:          6px 6px 4px 6px;
+    border:           0;
+}
+
+.search input {
+    width:            186px;
+    padding:          0;
+    border:           0;
+    background-color: transparent;
+}
+
+#search-main_listbox li.k-item span.k-sprite {
+    margin: 2px 5px 0 0;
+}
+
+.search .search-results {
+    top:           10px;
+    border-radius: 5px;
+    overflow-y:    auto;
+    overflow-x:    hidden;
+    z-index:       1010;
+}
+
+.search .search-dropdown {
+    position:         absolute;
+    max-width:        450px;
+    max-height:       500px;
+    margin-top:       11px;
+    margin-left:      -7px;
+    border-radius:    5px;
+    background-color: #fff;
+    border:           1px solid #666;
+    overflow:         auto;
+    display:          block;
+    z-index:          1010;
+}
+
+.search .search-dropdown .category {
+    max-width:        90px;
+    word-wrap:        break-word;
+    padding:          5px;
+    vertical-align:   top;
+    border:           1px solid #ddd;
+    border-top:       none;
+    font-weight:      bold;
+    color:            #6b7174;
+    background-color: #f7f7f7;
+}
+
+.search .search-dropdown tr:first-child .category {
+    border: 1px solid #ddd;
+}
+
+.search .search-dropdown tr:last-child .category {
+    border-bottom-width: 0;
+}
+
+.search-dropdown-items {
+    padding:        4px;
+    border-bottom:  1px solid #ddd;
+    width:          270px;
+    vertical-align: top;
+}
+
+.search-dropdown-items ul {
+    list-style-type: none;
+}
+
+.search-dropdown-items ul li {
+    cursor:        pointer;
+    padding:       2px 4px;
+    overflow:      hidden;
+    text-overflow: ellipsis;
+    white-space:   nowrap;
+}
+
+.search-dropdown-items ul li:hover,
+.search-dropdown-items ul li.selected {
+    border-radius: 4px;
+    cursor:        pointer;
+}
+
+.search-dropdown-items ul li .pull-left {
+    margin: 1px 5px 0 0;
+}
+
+/*endregion Search */
+
+.logout, .help {
+    float:   right;
+    padding: 13px 0 0 0;
+    width:   30px;
+    height:  28px;
+}
+
+/*region alarmBar */
+.alerts {
+    float:            left;
+    width:            100%;
+    border-top:       2px solid #c26310;
+    background-color: #c26310;
+    background:       none, linear-gradient(to bottom, #f59d51, #c26310); /* W3C */
+}
+
+.alerts .nav {
+    padding-left: 15px;
+}
+
+ul.alarm-items li {
+    margin-top:    9px;
+    margin-right:  8px;
+    border-radius: 5px;
+    cursor:        pointer;
+}
+
+ul.alarm-items > li > a:hover, ul.alarm-items > li > a:focus {
+    background-color: transparent;
+    text-decoration:  underline;
+}
+
+/* AlarmStatus red */
+ul.alarm-items .alarmstatus-not-all-acknowledged {
+    background-color: #b50000;
+    background:       none, linear-gradient(to bottom, #f20000, #b50000); /* W3C */
+    border:           2px solid #b50000;
+}
+
+/* AlarmStatus yellow */
+ul.alarm-items .alarmstatus-all-acknowledged {
+    background-color: #960;
+    background:       none, linear-gradient(to bottom, #fa0, #960); /* W3C */
+    border:           2px solid #960;
+}
+
+ul.alarm-items li a {
+    color:       #fff;
+    font-weight: bold;
+}
+
+ul.alarm-items > li > a > span.pull-left {
+    margin-right: 6px;
+}
+
+#alarmBar {
+    background-color: transparent;
+}
+
+#alarmBar .badge {
+    background-color: #777;
+}
+
+.alarm-notification {
+    float:       right;
+    width:       auto;
+    height:      34px;
+    line-height: 34px;
+    margin-top:  12px;
+    background:  url('../images/verticalseparatordotsorange.png') left no-repeat;
+}
+
+.alarm-notification-label {
+    float:       left;
+    font-weight: bold;
+    opacity:     0.5;
+}
+
+.alarm-notification-text {
+    float:       right;
+    font-weight: bold;
+    color:       #fefefe;
+    text-shadow: 1px 1px rgba(0, 0, 0, .5);
+}
+
+.alarm-notification-text:hover {
+    text-decoration: underline;
+}
+
+.alarm-notification .icon-alarms-alert {
+    float:            right;
+    margin-left:      12px;
+    margin-right:     3px;
+    margin-top:       2px;
+    background-image: url('../images/icon-alarms-alert.png');
+    width:            26px;
+    height:           26px;
+}
+
+.alarmbar-collapse {
+    left:   0;
+    width:  100%;
+    height: 27px;
+    cursor: pointer;
+}
+
+.alarmbar-collapse-background {
+    float:            left;
+    width:            100%;
+    height:           10px;
+    background-color: #c26310;
+}
+
+.alarmbar-collapse-button {
+    float:            left;
+    width:            14px;
+    height:           16px;
+    margin:           -2px 50% 0 50%;
+    padding:          2px 0 0 2px;
+    border-radius:    2px;
+    background-color: #c26310;
+    z-index:          20;
+}
+
+/*endregion alarmBar */
+
+/*region Widgets */
+.widget {
+    float:         left;
+    width:         100%;
+    margin-bottom: 15px;
+}
+
+.widget-header {
+    float:          left;
+    width:          100%;
+    padding:        0 0 0 6px;
+    font-size:      0.8em;
+    text-transform: uppercase;
+    text-shadow:    1px 1px rgba(255, 255, 255, .5);
+    height:         27px;
+    line-height:    16px;
+    border-radius:  6px 6px 0 0;
+    border:         2px solid;
+    position:       relative;
+}
+
+/* Always make the title font bold in the navigationArea */
+#navigationArea .widget-header {
+    font-weight: bold;
+}
+
+.widget-header-title {
+    left:          35px; /* space for left icon */
+    overflow:      hidden;
+    text-overflow: ellipsis;
+    white-space:   nowrap;
+    position:      absolute;
+    right:         25px; /* will be recalculated in widgetpanel.js */
+    margin:        3px 0 0 0;
+}
+
+#navigationArea .widget-header-title {
+    left: 28px;
+}
+
+/* Tool icons on the upper right corner of a widget panel */
+.widget-header-tools {
+    float: right;
+}
+
+/* Tool icons should have a pointer cursor */
+.widget-header-tools span {
+    font-size:    12px;
+    line-height:  1.8;
+    cursor:       pointer;
+    filter:       alpha(opacity=50);
+    opacity:      .5;
+    margin-right: 5px;
+}
+
+.widget-header-tools span:hover {
+    filter:  alpha(opacity=100);
+    opacity: 1;
+}
+
+.widget-header-tools .widget-header-action-disabled,
+.widget-header-tools .widget-header-action-disabled:hover {
+    opacity: .2;
+    cursor:  not-allowed;
+}
+
+/* Size of the icon on the left of the widget header */
+.widget-header-icon {
+    width:        16px;
+    height:       16px;
+    margin-right: 5px;
+    margin-top:   3px;
+}
+
+.widget-content {
+    -moz-box-sizing:  border-box;
+    box-sizing:       border-box;
+    overflow:         auto;
+    width:            100%;
+    border-radius:    0 0 6px 6px;
+    border:           2px solid #999;
+    border-top-style: none;
+    background-color: #fff;
+}
+
+/* Overwrite border colors explicitly */
+.widget-body.k-widget,
+.widget-body.k-content {
+    border:           none;
+    background-color: #fff;
+}
+
+/* but leave the borders in the wizards */
+.k-widget .wizard-content .widget-content {
+    border-color: #999;
+}
+
+/* fit images in widgets */
+.widget-body .img-thumbnail {
+    -moz-box-sizing: border-box;
+    box-sizing:      border-box;
+}
+
+/* move tabpanel a bit to the right in order to adjust vertically width the widget panel icon */
+.widget-body.k-widget > .k-tabstrip-items {
+    padding-left: 9px;
+}
+
+/* since we want a clean design, remove borders from grid header */
+.widget-body .k-grid-header-wrap {
+    border-right-width: 0;
+}
+
+.widget-body > .k-content.k-state-active,
+.widget-body > .k-grid {
+    border-left:   none;
+    border-right:  none;
+    border-bottom: none;
+}
+
+/* Adjust alignment of labels in the grid toolbar */
+.widget-body .k-grid-toolbar label {
+    vertical-align: middle;
+    padding:        0 0.5em 0 1em;
+    margin-bottom:  0;
+    font-weight:    normal;
+}
+
+/* widen up the dropdowns in the grid toolbar a bit */
+.widget-body .k-grid-toolbar .k-dropdown {
+    width: 200px;
+}
+
+/* if there is a combobox right in the widget body, give a bit margin to it. */
+.widget-body > .k-combobox {
+    margin: 15px 0 0 15px;
+}
+
+/* add a toolbar spacer */
+.k-grid-toolbar .toolbar-divider {
+    border-left:  1px solid #c5c5c5;
+    border-right: 1px solid #fff;
+    margin:       0 5px 0 8px;
+}
+
+.widget-status {
+    padding:      0;
+    border-width: 1px 0 0 0;
+}
+
+.k-toolbar .widget-status-item-right {
+    float:      right;
+    margin-top: .6em;
+}
+
+.popover-content [data-id=ok] {
+    margin-top:    9px;
+    margin-bottom: 9px;
+}
+
+.draggable .widget .widget-header {
+    padding-left: 14px;
+    cursor:       move;
+}
+
+.draggable .widget .widget-header .collapse {
+    margin-left: 0;
+}
+
+.draggable .widget .widget-header .pull-right {
+    margin-right: 8px;
+}
+
+/* Adjust padding for bootstrap's grid in a widget aka dash strip. */
+.widget-content .row > div {
+    padding: 0;
+}
+
+.k-grid td > span.glyphicon-bell {
+    font-size: 1.6em;
+}
+
+/* used in the widget catalog */
+.widget-header .title {
+    margin-left: 10px;
+}
+
+.widget-next-btn-wrapper {
+    padding: 2px 30px 0 0
+}
+
+.widget-next-btn-wrapper .btn {
+    float:        right;
+    background:   none repeat scroll 0 0, linear-gradient(to bottom, #df9037, #b15d00) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #af5b00;
+    box-shadow:   none;
+    color:        #fff;
+    text-shadow:  0 1px rgba(0, 0, 0, .5);
+    width:        100px;
+}
+
+/*endregion Widgets */
+
+.details-header {
+    border-bottom:  1px solid #eee;
+    padding:        0 15px 4px;
+    margin:         2em 0 0.75em;
+    color:          hsl(0, 0%, 40%);
+    text-transform: uppercase;
+}
+
+.routing-summary dl { width: 100%; }
+
+.routing-summary dd { margin-left: 110px; }
+
+.routing-summary dt { width: 100px; }
+
+/* style for displaying icons after link to domainObject */
+.ref-icon {
+    margin-left:  4px;
+    margin-right: 4px;
+    cursor:       pointer;
+}
+
+/*region Drag and Drop frame for Widgets */
+#content-wrap .ui-state-highlight {
+    border:        2px dashed rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    height:        80px;
+}
+
+.widget-drag .widget-header {
+    border-radius: 6px;
+    border-width:  2px;
+}
+
+/*endregion Drag and Drop frame for Widgets */
+
+.treeEntry {
+    padding-left: 30px;
+}
+
+/* The z-index of map decreased so that menu dropdown goes over it. It must be done this way */
+.olMapViewport {
+    z-index: 100;
+}
+
+.slide-handle {
+    float:  right;
+    width:  10px;
+    height: 100%;
+}
+
+span.k-in > span.highlight {
+    background: yellow;
+}
+
+/* more icons and settings */
+
+.widget-catalog-container .header .title,
+.create-widget-container .header .title,
+.faq-container .header .title {
+    color: #44474a;
+}
+
+/* DateTimePicker */
+.k-datetimepicker {
+    width: 100%;
+}
+
+/* Have a proper loading mask on windows */
+.k-window .k-loading-mask {
+    top:     0;
+    left:    0;
+    width:   100%;
+    height:  100%;
+    z-index: 2;
+}
+
+/* region Input Dialog styles - not depending on theme right now */
+.k-ext-dialog .k-window-titlebar {
+    background-color: #8d9395;
+    background:       none, linear-gradient(to bottom, #d5e1e2, #8d9395); /* W3C */
+    color:            #323738;
+    height:           58px;
+    line-height:      58px;
+    padding:          0;
+    font-size:        1.333em;
+    font-weight:      bold;
+    text-align:       center;
+    text-shadow:      0 1px rgba(255, 255, 255, .5);
+    text-transform:   uppercase;
+}
+
+.k-ext-dialog .k-window-titlebar .k-window-actions {
+    padding-top: 0;
+    right:       13px; /* 15px - 2px padding */
+}
+
+.k-ext-dialog .k-window-titlebar .k-window-action {
+    width:       100%;
+    height:      100%;
+    padding-top: 0;
+    color:       #2e2e2e;
+    font-weight: bold;
+}
+
+.k-ext-dialog .k-window-titlebar .k-link:hover {
+    border:     none;
+    background: none;
+    /* implement a "sink" effect when hovering over the icon */
+    padding:    1px;
+}
+
+.k-ext-dialog .k-window-titlebar .k-link:hover .k-icon {
+    background-position: inherit;
+}
+
+.k-ext-dialog .k-window-titlebar .icon-close,
+.k-ext-dialog .k-window-titlebar .glyphicon {
+    background:  none;
+    width:       1em;
+    height:      100%;
+    font-size:   2em;
+    line-height: 2em;
+}
+
+.k-ext-dialog .k-window-content {
+    background-color: #ccc;
+    padding:          0;
+}
+
+.k-ext-dialog-buttons {
+    background-color: #969b9d;
+    border-top:       2px solid #74787b;
+    bottom:           0 !important;
+    text-align:       right !important;
+    position:         absolute;
+    width:            100%;
+    -moz-box-sizing:  border-box;
+    box-sizing:       border-box;
+    padding:          15px 15px 0;
+    overflow:         auto;
+    overflow-y:       hidden;
+}
+
+.k-ext-dialog-buttons > div {
+    display: inline-block
+}
+
+.k-ext-dialog-content {
+    overflow: auto;
+    padding:  0;
+}
+
+.k-ext-dialog-buttons .btn, .widget-next-btn-wrapper .btn {
+    min-width:        100px;
+    color:            #343638;
+    text-transform:   uppercase;
+    text-shadow:      0 1px rgba(255, 255, 255, .5);
+    font-weight:      bold;
+    font-size:        inherit;
+    background-color: hsl(204, 2%, 46%);
+    background:       none, linear-gradient(to bottom, hsl(206, 4%, 66%), hsl(204, 2%, 46%));
+    border-color:     hsl(204, 2%, 46%);
+    border-width:     2px;
+    margin-bottom:    15px;
+}
+
+/* Proper spacing between buttons */
+.k-ext-dialog-buttons .btn + .btn {
+    margin-left: 15px;
+}
+
+.k-ext-dialog-buttons .btn:hover, .widget-next-btn-wrapper .btn:hover {
+    color:            white;
+    text-shadow:      0 1px rgba(0, 0, 0, .5);
+    background-color: #c97228;
+    background:       none, linear-gradient(to bottom, #dd843c, #b75d15);
+    border-color:     #b3590f;
+}
+
+.k-ext-required {
+    background-color: pink;
+}
+
+.extDialog .row {
+    display: table;
+    margin:  20px 0;
+    width:   100%;
+}
+
+/* Adjust the dialog icon. */
+.extDialog .dialogIcon {
+    text-align:    center;
+    padding-right: 0;
+}
+
+/* Size of the dialog icon. */
+.extDialog .dialogIcon .glyphicon {
+    font-size: 3em;
+}
+
+.extDialog .row > div {
+    display:        table-cell;
+    vertical-align: middle;
+    float:          none;
+}
+
+/* endregion Input Dialog styles - not depending on theme right now */
+
+/*region context menu */
+.k-context-menu {
+    max-width: 260px;
+    position:  absolute;
+    display:   none;
+    /*before new mapinfo box (Bootstrap popover): z-index:   1050;*/
+    z-index:   1070;
+}
+
+/* Don't wrap context menu texts */
+.k-context-menu .k-link {
+    white-space: nowrap;
+}
+
+.k-context-menu .k-item > .k-link {
+    padding: 0.5em 1.3em 0.4em 0.9em;
+}
+
+/*endregion context menu */
+
+div.k-menu-vertical > .k-item {
+    display:      block;
+    float:        none;
+    border-width: 0;
+}
+
+/*region Wizard styles */
+#wizard {
+    padding: 0;
+}
+
+/* Wizard positioning */
+.wizard-menu {
+    float:      left;
+    width:      250px;
+    height:     100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding:    0 10px 0 15px;
+}
+
+.wizard-content {
+    /*height:     auto;*/
+    height:     100%;
+    padding:    0 15px 0 5px;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+.wizard-content .widget {
+    margin-top: 15px;
+}
+
+.wizard-content .widget.disabled .glasspanel {
+    display:          block;
+    position:         absolute;
+    top:              0;
+    bottom:           0;
+    opacity:          0.4;
+    filter:           alpha(opacity=40);
+    background-color: lightgray;
+    border-radius:    6px;
+    width:            100%;
+    z-index:          1;
+}
+
+.wizard-content .widget.disabled {
+    position:       relative;
+    pointer-events: none;
+    border-radius:  6px;
+}
+
+.wizard-content .widget-header {
+    /*padding:         inherit;*/
+    font-weight:     bold;
+    -moz-box-sizing: border-box;
+    box-sizing:      border-box;
+}
+
+.wizard-content .widget-header-title {
+    left: 10px;
+}
+
+/* stretch content to 100% including padding */
+.wizard-content .widget-content {
+    padding:         15px;
+    width:           100%;
+    -moz-box-sizing: border-box;
+    box-sizing:      border-box;
+}
+
+.wizard-content ul {
+    list-style: none;
+}
+
+.wizard-content dd {
+    margin-bottom: 10px;
+}
+
+.wizard-content .k-textbox,
+.wizard-content .k-widget,
+.wizard-content .multiselect-container {
+    /* because of the tooltip icon */
+    width: 90%
+}
+
+/* but the 90% are not valid for the listviews in the multiselects */
+.wizard-content .k-widget.multiselect-listview,
+.wizard-content .k-widget.k-grid {
+    width: auto;
+}
+
+.wizard-content .k-tooltip {
+    -moz-box-sizing: border-box;
+    box-sizing:      border-box;
+}
+
+.k-widget .k-numerictextbox span.k-tooltip {
+    position: absolute;
+    display:  block;
+    width:    100.3%;
+    height:   80%;
+    padding:  0;
+    top:      2.15em;
+    left:     -0.01em;
+}
+
+.k-widget .k-numerictextbox .k-icon {
+    height: 16px;
+}
+
+.wizard-content .k-dropzone {
+    padding: 0;
+}
+
+/* position & color of description tooltip icon */
+.wizard-content .glyphicon[data-toggle=tooltip] {
+    color:          #999;
+    font-size:      1.5em;
+    /* 8% + 2% = 10%, see 90% above... */
+    width:          8%;
+    margin-left:    2%;
+    vertical-align: top;
+}
+
+.wizard-content dd .row {
+    margin-bottom: 1em;
+}
+
+.wizard-description {
+    padding-top: 15px;
+}
+
+/* Wizard buttons */
+.wizard-steps {
+    padding:       15px 0 0 0;
+    counter-reset: wizardsteps;
+}
+
+.wizard-steps > a {
+    display:          block;
+    padding:          10px 30px 10px 40px;
+    position:         relative;
+    font-size:        inherit;
+    font-weight:      bold;
+    white-space:      inherit;
+    text-align:       left;
+    text-decoration:  none;
+    text-transform:   uppercase;
+    text-shadow:      0 1px rgba(255, 255, 255, .5);
+    color:            #2f3132;
+    border-radius:    4px;
+    border:           2px solid hsl(204, 2%, 46%);
+    background-color: hsl(204, 2%, 46%);
+    background:       none, linear-gradient(to bottom, hsl(206, 4%, 66%), hsl(204, 2%, 46%));
+    margin-bottom:    15px;
+    cursor:           pointer;
+}
+
+.wizard-steps > a:before {
+    font-size:         2em;
+    line-height:       1;
+    margin-top:        -.5em;
+    top:               50%;
+    left:              .5em;
+    position:          absolute;
+    text-align:        center;
+    content:           counter(wizardsteps);
+    counter-increment: wizardsteps;
+}
+
+/* Same as Bootstrap's ".glyphicon .glyphicon-chevron-right" */
+.wizard-steps > a.active:after {
+    font-family:             'Glyphicons Halflings', sans-serif;
+    font-style:              normal;
+    font-weight:             normal;
+    line-height:             1;
+    -webkit-font-smoothing:  antialiased;
+    /*noinspection CssUnknownProperty*/
+    -moz-osx-font-smoothing: grayscale;
+    font-size:               1.5em;
+    margin-top:              -.5em;
+    top:                     50%;
+    right:                   .5em;
+    position:                absolute;
+    text-align:              center;
+    content:                 "\e080";
+}
+
+.wizard-steps > a span {
+    font-size:      0.8em;
+    font-weight:    normal;
+    text-transform: none;
+    /*text-shadow:    0 1px rgba(255, 255, 255, .5);*/
+}
+
+/*  the active state */
+.wizard-steps > a.active {
+    color:       #fff;
+    text-shadow: 0 1px rgba(0, 0, 0, .5);
+    box-shadow:  none;
+    cursor:      default;
+}
+
+/*endregion Wizard styles */
+
+/*region Toast styles */
+.toast-container {
+    position:   fixed;
+    left:       50%;
+    width:      455px;
+    z-index:    10000;
+    /* create a scrollbar if necessary */
+    max-height: 100%;
+    /*overflow-y: auto;*/
+}
+
+.toast {
+    min-width:     400px;
+    display:       none;
+    border-radius: 5px;
+    border:        1px solid #666;
+    margin-bottom: 13px;
+}
+
+/* Leave 5 px margin, since there is 15px on the bootstrap columns. */
+.toast .row {
+    margin-left:  -10px;
+    margin-right: -10px;
+}
+
+.toast-notification-alarm,
+.toast-notification-error,
+.toast-notification-report,
+.toast-notification-info {
+    background:   no-repeat 24px 10px;
+    padding-left: 65px;
+    padding-top:  10px;
+}
+
+.toast-notification-alarm {
+    background-image: url('../images/icon-notifications-alarms.png');
+}
+
+.toast-notification-error {
+    background-image: url('../images/icon-notifications-errors.png');
+}
+
+.toast-notification-report,
+.toast-notification-info {
+    background-image: url('../images/icon-notifications-events.png');
+}
+
+.toast-buttons button {
+    width:         100%;
+    margin-bottom: 5px;
+}
+
+.toast-buttons button:first-of-type {
+    margin-top: 5px;
+}
+
+/*endregion Toast styles */
+
+/* Adjust Bootstrap's definition list styles */
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        white-space: normal;
+    }
+
+    .dl-horizontal dd:before,
+    .dl-horizontal dd:after {
+        content: " ";
+        display: table;
+    }
+
+    .dl-horizontal dd:after {
+        clear: both;
+    }
+
+    .dl-horizontal dd:before,
+    .dl-horizontal dd:after {
+        content: " ";
+        display: table;
+    }
+
+    .dl-horizontal dd:after {
+        clear: both;
+    }
+}
+
+.dl-horizontal {
+    margin-bottom: 0;
+}
+
+/* region widget-detail */
+
+.widget-detail {
+    overflow: auto;
+}
+
+/*spacing between detail info*/
+.widget-detail dd {
+    margin-bottom: 5px;
+}
+
+/* adjust details for sidebar. The rule could also be something like #sideBar .widget-detail... */
+.col-sm-3 .widget-detail .dl-horizontal dt {
+    width:        95px;
+    text-align:   left;
+    padding-left: 15px;
+}
+
+.col-sm-3 .widget-detail .dl-horizontal dd {
+    margin-left: 95px;
+}
+
+/* endregion widget-detail */
+
+/* region widget-list */
+
+.widget-body.k-content.widget-list {
+    background-color: #e7e7e4;
+}
+
+.widget-list .row {
+    background-color: #fff;
+    border-radius:    6px;
+    border:           2px solid #9faeaf;
+    margin:           10px 0;
+}
+
+.widget-list .row > div {
+    padding-left:  1em;
+    padding-right: 1em;
+}
+
+.widget-list .row > .widget-list-image-column {
+    padding: 0;
+}
+
+.widget-list h5 {
+    color:       #585c5f;
+    font-weight: bold;
+}
+
+.widget-list-kpi {
+    font-size: 2.5em;
+    color:     #777;
+}
+
+/*noinspection CssInvalidPropertyValue*/
+.widget-list-icon .glyphicon, .widget-list-icon[class^="icon-"], .widget-list-icon[class*=" icon-"] {
+    -webkit-mask-image: -webkit-linear-gradient(top, rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+    -webkit-mask-image: linear-gradient(top, rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+    text-shadow:        0 1px 0 rgba(0, 0, 0, .5);
+    font-size:          5em;
+}
+
+.widget-list .widget-status-icon {
+    background-size: 32px 32px;
+}
+
+.k-grid-content .widget-status-icon {
+    width:  16px;
+    height: 16px;
+}
+
+/* endregion widget-list */
+
+/* region status colors */
+.fg-notavailable {
+    color: #aaa;
+}
+
+.fg-good {
+    color: #126300;
+}
+
+.fg-fair {
+    color: #fdbc38;
+}
+
+.fg-bad {
+    color: #fc6b20;
+}
+
+.fg-dangerous {
+    color: #b20010;
+}
+
+/* endregion status colors */
+
+/* proper height of tabpanel */
+.k-tabstrip > .k-content, .k-panelbar .k-tabstrip > .k-content {
+    margin:   0 0 0;
+    padding:  0 0;
+    position: relative;
+}
+
+/* align styling of tabstrips to uppercase & bold scheme */
+.k-tabstrip-items {
+    text-transform: uppercase;
+    font-weight:    bold;
+    font-size:      0.8em;
+}
+
+/* Show / hide labels of Menu depending on browser width */
+@media (max-width: 1050px) {
+    body {
+        font-size: 10px;
+    }
+
+    ul.navbar-nav li a span.menu-item-text {
+        display: none;
+    }
+
+    .search input {
+        width: 130px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search input {
+        width: 90%;
+    }
+
+    ul.navbar-nav li a span.menu-item-text {
+        display: inline;
+    }
+}
+
+/*region about window styles */
+.about-window {
+    background:              #fff;
+    border-left:             1px solid #666;
+    border-right:            1px solid #666;
+    border-top:              1px solid #666;
+    border-top-left-radius:  5px;
+    border-top-right-radius: 5px;
+    border-bottom:           0 none;
+    position:                relative;
+}
+
+.about-window .col-sm-7,
+.about-window .col-sm-5,
+.about-window .col-sm-12 {
+    padding-left:  0;
+    padding-right: 0;
+}
+
+.about-window > .k-window-titlebar {
+    background:  transparent;
+    border:      0;
+    line-height: 12px;
+    height:      95px;
+}
+
+.about-window-image-container {
+    position: absolute;
+    bottom:   -93px;
+    left:     -96px;
+}
+
+.about-window > .k-window-content {
+    background-color: #fff;
+    padding-top:      25px;
+    z-index:          1;
+}
+
+.about-window-content {
+    padding-left:  45px;
+    padding-right: 45px;
+}
+
+.about-window > .k-ext-dialog-buttons {
+    background: transparent;
+    border-top: 0;
+    z-index:    2;
+}
+
+.about-window > .k-window-titlebar .row {
+    padding-left:  45px;
+    padding-right: 45px;
+    margin-left:   0;
+    margin-right:  0;
+    text-align:    left;
+}
+
+.about-window > .k-window-titlebar .about-application-logo {
+    text-align:  left;
+    padding-top: 25px;
+}
+
+/* Those colors are fixed to the ROAMWORKS CI. */
+.about-window > .k-window-titlebar .about-version {
+    color:          #000;
+    font-size:      0.8em;
+    font-weight:    normal;
+    padding-bottom: 5px;
+    border-bottom:  2px solid #9d471c;
+    text-transform: none;
+}
+
+.about-window > .k-window-titlebar .about-logo {
+    background: url('../images/logos/logo-default.png') top left no-repeat;
+    width:      134px;
+    height:     47px;
+    margin-top: 15px;
+}
+
+/*endregion about window styles */
+
+/*region gauge legend styles */
+ul.gauge-legend {
+    text-align:  center;
+    list-style:  none;
+    padding-top: 5px;
+}
+
+ul.gauge-legend li {
+    position:     relative;
+    display:      inline;
+    padding-left: 30px;
+    font-size:    32px;
+    line-height:  10px;
+    text-indent:  0;
+}
+
+ul.gauge-legend li:before {
+    content:  '■';
+    position: absolute;
+    top:      20px;
+    left:     11px;
+}
+
+ul.gauge-legend li.gauge-legend-good:before {
+    color: #efeff1;
+}
+
+ul.gauge-legend li.gauge-legend-fair:before {
+    color: #fdbc38;
+}
+
+ul.gauge-legend li.gauge-legend-bad:before {
+    color: #fc6b20;
+}
+
+ul.gauge-legend li.gauge-legend-dangerous:before {
+    color: #b20010;
+}
+
+ul.gauge-legend li > span {
+    font-size: 12px;
+}
+
+/*endregion gauge legend styles */
+
+/* mark required fields with an asterisk */
+.dl-horizontal dt[required]:before {
+    color:   #b20010;
+    content: "*";
+}
+
+/*region grid toolbar buttons */
+.k-grid-toolbar .btn {
+    padding:          2px 7px;
+    margin:           0 1px;
+    background-color: #e3e3e3;
+    border-color:     #c5c5c5;
+    color:            #2e2e2e;
+    font-size:        inherit;
+    line-height:      1.66em;
+}
+
+.k-grid-toolbar .btn.default,
+.k-grid-toolbar .btn[default] {
+}
+
+.img-thumbnail {
+    max-width: 250px !important;
+}
+
+/*endregion grid toolbar buttons */
+
+/*region login styles */
+#loginDialog {
+    background:      #ccc url('../images/logos/login-default.png') no-repeat center 30px;
+    background-size: 268px 94px;
+}
+
+#loginDialog form {
+    width:        300px;
+    display:      block;
+    margin-top:   150px;
+    margin-left:  auto !important;
+    margin-right: auto !important;
+}
+
+#loginDialog form .k-textbox {
+    width: 280px;
+}
+
+#loginDialog form li {
+    clear:        both;
+    padding-left: 10px;
+    padding-top:  10px;
+}
+
+#loginDialog form .k-tooltip-validation {
+    max-width:          300px;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:         border-box;
+}
+
+#loginDialog form .login-logo {
+    margin-bottom: 30px;
+}
+
+/*endregion login styles */
+
+.k-group-start.k-group-end .k-editor-widget {
+    margin-right: 15em;
+}

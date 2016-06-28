@@ -1,0 +1,524 @@
+<ul class="mc-panelbar">
+    <li class="mc-panel mc-panel-mapview">
+        <span class="mc-icon mc-icon-panel mc-icon-mapview"></span>
+        <span class="mc-panel-name" data-phrase="Map View">Map View</span>
+
+        <ul class="mc-panelbar">
+            <li class="mc-panel mc-panel-viewbehavior k-state-active">
+                <span class="mc-icon mc-icon-panel mc-icon-viewbehavior"></span>
+                <span class="mc-panel-name" data-phrase="View Behavior">View Behavior</span>
+
+                <div class="mc-panel-body">
+                    <div class="mc-control-group checkbox">
+                        <label>
+                            <input type="checkbox" name="auto-refresh" />
+                            <span class="checkbox-name" data-phrase="Auto Refresh">Auto Refresh</span>
+                        </label>
+                    </div>
+
+                    <div class="mc-control-group checkbox">
+                        <label>
+                            <input type="checkbox" name="auto-focus" />
+                            <span class="checkbox-name" data-phrase="Auto Focus">Auto Focus</span>
+                        </label>
+                    </div>
+
+                    <div class="mc-control-group checkbox">
+                        <label>
+                            <input type="checkbox" name="auto-labeling" />
+                            <span class="checkbox-name" data-phrase="Auto Labeling">Auto Labeling</span>
+                        </label>
+                    </div>
+
+                    <div class="text-right">
+                        <button class="k-button" name="save-viewport" data-phrase="Save View">Save View</button>
+                        <button class="k-button" name="restore-viewport" data-phrase="Restore View">Restore View</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="mc-panel mc-panel-viewarea">
+                <span class="mc-icon mc-icon-panel mc-icon-viewarea"></span>
+                <span class="mc-panel-name" data-phrase="Map Area">Map Area</span>
+
+                <div class="mc-panel-body">
+                    <div class="mc-control-group">
+                        <label><span data-phrase="Scale">Scale</span>:</label>
+                        <select name="zoom-to-scale">
+                            <option value="-1" data-phrase="Choose zoom scale">Choose zoom scale</option>
+                            <option value="50000">1 : 50000</option>
+                            <option value="100000">1 : 100000</option>
+                            <option value="500000">1 : 500000</option>
+                            <option value="1000000">1 : 1000000</option>
+                            <option value="1000000000" data-phrase="World">World</option>
+                        </select>
+                    </div>
+
+                    <div class="mc-control-group">
+                        <label><span data-phrase="Zoom level">Zoom level</span>:</label>
+                        <select name="zoom-to-level">
+                            <option value="-1" data-phrase="Choose zoom level">Choose zoom level</option>
+                            <option value="18" data-phrase="Street">Street</option>
+                            <option value="14" data-phrase="Town">Town</option>
+                            <option value="8" data-phrase="Region">Region</option>
+                            <option value="4" data-phrase="Country">Country</option>
+                            <option value="2" data-phrase="Continent">Continent</option>
+                            <option value="1" data-phrase="World">World</option>
+                        </select>
+                    </div>
+
+                    <div class="mc-control-group hidden">
+                        <form>
+                            <fieldset disabled>
+                                <div class="form-group form-group-sm">
+                                    <label><span data-phrase="Region">Region</span>:</label>
+                                    <select name="zoom-to-region">
+                                        <option value="-1:-1:-1" data-phrase="Choose zoom region">Choose zoom region</option>
+                                        <option value="-180,-90,180,90" data-phrase="World">World</option>
+                                        <option value="-40.96,-34.16,79.63,39.23" data-phrase="Africa">Africa</option>
+                                        <option value="43.12,-14.86,163.70,53.80" data-phrase="Asia">Asia</option>
+                                        <option value="-45.97,25.48,74.62,71.97" data-phrase="Europe">Europe</option>
+                                        <option value="-172.00,12.73,-51.42,67.27" data-phrase="North America">North America</option>
+                                        <option value="-121.90,-52.27,-1.32,17.31" data-phrase="South America">South America</option>
+                                        <option value="97.646,-53.12,218.23,15.96" data-phrase="Oceania">Oceania</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="k-button" name="save-region" data-phrase="Save Region">Save Region</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+
+    <li class="mc-panel mc-panel-intervals">
+        <span class="mc-icon mc-icon-panel mc-icon-intervals"></span>
+        <span class="mc-panel-name" data-phrase="Intervals">Intervals</span>
+
+        <div class="mc-panel-body">
+            <form>
+                <fieldset>
+                    <div class="form-group radio">
+                        <label>
+                            <input type="radio" name="history-mode" value="CURRENT" checked />
+                            <span class="radio-name" data-phrase="All (Latest)">All (Latest)</span>
+                        </label>
+                    </div>
+                    <div class="form-group radio">
+                        <label>
+                            <input type="radio" name="history-mode" value="INTERVAL" />
+                            <span class="radio-name" data-phrase="Interval">Interval</span>
+                        </label>
+                    </div>
+                    <div class="mc-control-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" data-phrase="Interval selection">
+                                Interval selection
+                            </div>
+                            <fieldset class="panel-fieldset" name="interval-selection" disabled>
+                                <div class="form-group form-group-sm">
+                                    <label><span data-phrase="Presets">Presets</span>:</label>
+                                    <select name="preset-intervals">
+                                        <option value="-" data-phrase="Choose interval">Choose interval</option>
+                                        <option value="TODAY" data-phrase="Today">Today</option>
+                                        <option value="YESTERDAY" data-phrase="Yesterday">Yesterday</option>
+                                        <option value="LAST_24H" data-phrase="Last 24 Hours" selected>Last 24 Hours</option>
+                                        <option value="LAST_48H" data-phrase="Last 48 Hours">Last 48 Hours</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label><span data-phrase="From">From</span>:</label>
+                                    <input class="datetime-picker" name="datetime-from" value="1970-01-01 00:00 AM" />
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label><span data-phrase="To">To</span>:</label>
+                                    <input class="datetime-picker" name="datetime-to" value="1970-01-01 01:00 AM" />
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="button" class="k-button" name="fetch-positions"
+                                title="Shows the positions for the selected time"
+                                data-toggle="tooltip" data-phrase="Fetch Positions">
+                            Fetch Positions
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </li>
+
+    <li class="mc-panel mc-panel-navigation k-state-active">
+        <span class="mc-icon mc-icon-panel mc-icon-navigation"></span>
+        <span class="mc-panel-name" data-phrase="Navigation">Navigation</span>
+        <span class="badge position-count">0</span>
+
+        <div class="mc-panel-body">
+            <div class="mc-control-group scrollable">
+                <div class="list-group position-list"></div>
+            </div>
+
+            <div class="mc-control-group scrollable scrollable-sm hidden">
+                <div class="object-tree position-tree">Positions Tree</div>
+            </div>
+
+            <!--<div class="mc-control-group">
+                <label><span data-phrase="Total">Total</span>:</label>
+                <span class="badge position-count">0</span>
+            </div>-->
+
+            <div class="mc-control-group checkbox">
+                <label>
+                    <input type="checkbox" name="positions-visibility" />
+                    <span class="checkbox-name" data-phrase="Show/Hide all">Show/Hide all</span>
+                </label>
+            </div>
+
+            <div class="mc-control-group checkbox">
+                <label>
+                    <input type="checkbox" name="asset-labels" />
+                    <span class="checkbox-name" data-phrase="Show Asset Labels">Show Asset Labels</span>
+                </label>
+            </div>
+
+            <div class="mc-control-group checkbox">
+                <label>
+                    <input type="checkbox" name="use-clusters" disabled />
+                    <span class="checkbox-name" data-phrase="Use Clusters">Use Clusters</span>
+                </label>
+            </div>
+
+            <div class="mc-control-group checkbox">
+                <label>
+                    <input type="checkbox" name="positions-connector" disabled />
+                    <span class="checkbox-name" data-phrase="Connect History Positions">Connect History Positions</span>
+                </label>
+            </div>
+
+            <div class="mc-control-group">
+                <label class="status-filters-container hidden">
+                    <span class="status-filters-name" data-phrase="Asset status filters">Asset status filters</span>:
+                    <select multiple name="status-filters" data-placeholder="Select filters...">
+                        <!--<option value="LOADED">Loaded</option>-->
+                        <!--<option value="UNLOADED">Unloaded</option>-->
+                        <!--<option value="NONE">None</option>-->
+                    </select>
+                </label>
+            </div>
+
+            <div class="text-right">
+                <button class="k-button" name="animation"
+                        data-phrase="Activate Animation Panel" disabled>
+                    Activate Animation Panel
+                </button>
+            </div>
+        </div>
+    </li>
+
+    <li class="mc-panel mc-panel-animation hidden">
+        <span class="mc-icon mc-icon-panel mc-icon-animation"></span>
+        <span class="mc-panel-name" data-phrase="Animation">Animation</span>
+
+        <div class="mc-panel-body">
+            <div class="mc-control-group">
+                <span class="label label-primary animation-label">
+                    <span class="step-current">${stepCurrent}</span> / <span class="step-max">${stepMax}</span>
+                </span>
+            </div>
+
+            <div class="mc-control-group text-center">
+                <span class="animation-info">
+                    <span class="event-time">${eventTime}</span>
+                    <span class="event-name">${eventName}</span>
+                </span>
+            </div>
+
+            <div class="mc-control-group text-center">
+                <button class="btn btn-warning btn-xs btn-animation"
+                        name="animation-pause">
+                    <span class="glyphicon glyphicon-pause"></span>
+                </button>
+                <button class="btn btn-danger btn-xs btn-animation"
+                        name="animation-stop">
+                    <span class="glyphicon glyphicon-stop"></span>
+                </button>
+                <button class="btn btn-success btn-xs btn-animation"
+                        name="animation-play">
+                    <span class="glyphicon glyphicon-play"></span>
+                </button>
+            </div>
+
+            <div class="mc-control-group text-center animation-slider-container">
+                <input name="animation-slider" />
+            </div>
+
+            <div class="mc-control-group">
+                <label><span data-phrase="Animation Speed">Animation Speed</span>:</label>
+                <select name="animation-speed">
+                    <option value="1" data-phrase="Slow">Slow</option>
+                    <option value="0.5" data-phrase="Medium" selected>Medium</option>
+                    <option value="0.2" data-phrase="Fast">Fast</option>
+                </select>
+            </div>
+
+            <div class="mc-control-group">
+                <label><span data-phrase="Trail Length">Trail Length</span>:</label>
+                <select name="trail-length">
+                    <option value="1">1</option>
+                    <option value="3" selected>3</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                    <option value="11">11</option>
+                </select>
+            </div>
+        </div>
+    </li>
+
+    <li class="mc-panel mc-panel-locations">
+        <span class="mc-icon mc-icon-panel mc-icon-locations"></span>
+        <span class="mc-panel-name" data-phrase="Locations">Locations</span>
+        <span class="badge location-count">0</span>
+
+        <div class="mc-panel-body">
+            <div class="mc-control-group scrollable scrollable-sm">
+                <div class="object-tree location-tree">Locations Tree</div>
+            </div>
+
+            <!--<div class="mc-control-group">
+                <label><span data-phrase="Total">Total</span>:</label>
+                <span class="badge location-count">0</span>
+            </div>-->
+
+            <div class="mc-control-group checkbox">
+                <label>
+                    <input type="checkbox" class="toggle-labels" name="location-labels" />
+                    <span class="checkbox-name" data-phrase="Show Location Labels">Show Location Labels</span>
+                </label>
+            </div>
+
+            <div class="mc-control-group">
+                <div class="text-right editmode-activator">
+                    <button type="button" class="k-button"
+                            name="location-editmode-activator"
+                            data-phrase="Create Location">
+                        Create Location
+                    </button>
+                </div>
+                <div class="panel panel-default object-editor location-editor hidden"
+                     data-objecttype="location">
+                    <!--<div class="checkbox">-->
+                    <!--<label>-->
+                    <!--<input type="checkbox" class="editmode-activator"-->
+                    <!--name="location-editmode-activator"/>-->
+                    <!--<span class="checkbox-name form-name" data-phrase="Create Location">Create Location</span>-->
+                    <!--</label>-->
+                    <!--</div>-->
+                    <div class="panel-heading form-name" data-phrase="Create Location">
+                        Create Location
+                    </div>
+
+                    <form>
+                        <fieldset class="panel-fieldset editor-fieldset" disabled>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label" data-phrase="Coordinates">Coordinates</label>
+                                <input type="text" class="form-control editableobject-coordinates"
+                                       name="location-coordinates"
+                                       placeholder="Enter (latitude, longitude)"
+                                       title="Or click any position on the map."
+                                       data-toggle="tooltip"
+                                       data-placement="bottom" />
+                                <span class="help-block hidden">Or click any position on the map.</span>
+
+                                <div class="alert alert-danger invalid-block invalid-coordinates hidden">
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                <span class="invalid-text">Latitude must be in the range of -90 to +90,
+                                                           and longitude must be in the range of -180 to 180.</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label" data-phrase="Name">Name</label>
+                                <input type="text" class="form-control editableobject-objectname"
+                                       name="location-objectname"
+                                       placeholder="Enter name" />
+
+                                <div class="alert alert-danger invalid-block invalid-objectname hidden">
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    <span class="invalid-text">Object name must have at least 3 characters.</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label" data-phrase="Config">Config</label>
+                                <select class="editableobject-configname" name="location-configname"></select>
+                            </div>
+                            <div class="text-right">
+                                <button type="button" class="k-button cancel-object-creation"
+                                        name="cancel-location-creation"
+                                        data-phrase="Cancel" disabled>
+                                    Cancel
+                                </button>
+                                <button type="button" class="k-button confirm-object-creation"
+                                        name="confirm-location-creation"
+                                        data-phrase="Create location" disabled>
+                                    Create location
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    <li class="mc-panel mc-panel-geofences">
+        <span class="mc-icon mc-icon-panel mc-icon-geofences"></span>
+        <span class="mc-panel-name" data-phrase="Geofences">Geofences</span>
+        <span class="badge geofence-count">0</span>
+
+        <div class="mc-panel-body">
+            <div class="mc-control-group scrollable scrollable-sm">
+                <div class="object-tree geofence-tree">Geofences Tree</div>
+            </div>
+
+            <!--<div class="mc-control-group">
+                <label><span data-phrase="Total">Total</span>:</label>
+                <span class="badge geofence-count">0</span>
+            </div>-->
+
+            <div class="mc-control-group checkbox">
+                <label>
+                    <input type="checkbox" class="toggle-labels" name="geofence-labels" />
+                    <span class="checkbox-name" data-phrase="Show Geofence Labels">Show Geofence Labels</span>
+                </label>
+            </div>
+
+            <div class="mc-control-group">
+                <div class="text-right editmode-activator">
+                    <button type="button" class="k-button"
+                            name="geofence-editmode-activator" data-phrase="Create Geofence">
+                        Create Geofence
+                    </button>
+                </div>
+                <div class="panel panel-default object-editor geofence-editor hidden"
+                     data-objecttype="geofence">
+                    <!--<div class="checkbox">-->
+                    <!--<label>-->
+                    <!--<input type="checkbox" class="editmode-activator"-->
+                    <!--name="geofence-editmode-activator"/>-->
+                    <!--<span class="checkbox-name form-name" data-phrase="Create Geofence">Create Geofence</span>-->
+                    <!--</label>-->
+                    <!--</div>-->
+                    <div class="panel-heading form-name" data-phrase="Create Geofence">
+                        Create Geofence
+                    </div>
+
+                    <form>
+                        <fieldset class="panel-fieldset editor-fieldset" disabled>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label" data-phrase="Shape">Shape</label>
+
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default editableobject-shapetype active"
+                                            name="geofence-shapetype" title="Polygon" data-shapetype="POLYGON">
+                                        <span class="glyphicon glyphicon-tent" title="Polygon"
+                                              data-toggle="tooltip" data-placement="top"></span>
+                                        <span class="hidden" data-phrase="Polygon">Polygon</span>
+                                    </button>
+                                    <button type="button" class="btn btn-default editableobject-shapetype"
+                                            name="geofence-shapetype" title="Rectangle" data-shapetype="RECTANGLE">
+                                        <span class="glyphicon glyphicon-unchecked" title="Rectangle"
+                                              data-toggle="tooltip" data-placement="top"></span>
+                                        <span class="hidden" data-phrase="Rectangle">Rectangle</span>
+                                    </button>
+                                    <button type="button" class="btn btn-default editableobject-shapetype"
+                                            name="geofence-shapetype" title="Circle" data-shapetype="CIRCLE">
+                                        <span class="glyphicon glyphicon-cd" title="Circle"
+                                              data-toggle="tooltip" data-placement="top"></span>
+                                        <span class="hidden" data-phrase="Circle">Circle</span>
+                                    </button>
+                                    <button type="button" class="btn btn-default editableobject-shapetype"
+                                            name="geofence-shapetype" title="Pass" data-shapetype="PASS">
+                                        <span class="glyphicon glyphicon-road" title="Pass"
+                                              data-toggle="tooltip" data-placement="top"></span>
+                                        <span class="hidden" data-phrase="Pass">Pass</span>
+                                    </button>
+                                </div>
+
+                                <div class="editableobject-coordinates geofence-coordinates"></div>
+
+                                <div class="alert alert-danger invalid-block invalid-coordinates hidden">
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    <span class="invalid-text">${shapeType} needs at least ${pointCount}.</span>
+                                </div>
+                            </div>
+
+                            <fieldset class="shapeparameter-fieldset">
+                                <div class="form-group form-group-sm hidden" data-shapetype="CIRCLE">
+                                    <label class="control-label" data-phrase="Radius">Radius</label>
+                                    <input type="text" class="form-control editableobject-bufferdistance"
+                                           name="geofence-bufferdistance" value="10000"
+                                           placeholder="Enter radius" />
+
+                                    <div class="alert alert-danger invalid-block invalid-bufferdistance hidden">
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                        <span class="invalid-text">Radius must be > 10.</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-sm hidden" data-shapetype="PASS">
+                                    <label class="control-label" data-phrase="Width">Width</label>
+                                    <input type="text" class="form-control editableobject-bufferdistance"
+                                           name="geofence-bufferdistance" value="100"
+                                           placeholder="Enter width" />
+
+                                    <div class="alert alert-danger invalid-block invalid-bufferdistance hidden">
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                        <span class="invalid-text">Pass distance must be > 10.</span>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="form-group form-group-sm">
+                                <label class="control-label" data-phrase="Name">Name</label>
+                                <input type="text" class="form-control editableobject-objectname"
+                                       name="geofence-objectname"
+                                       placeholder="Enter name" />
+
+                                <div class="alert alert-danger invalid-block invalid-objectname hidden">
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    <span class="invalid-text">Object name must have at least 3 characters.</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label" data-phrase="Config">Config</label>
+                                <select class="editableobject-configname" name="geofence-configname">
+                                    <option value="Exclusive Security" selected>Exclusive Security</option>
+                                    <option value="Inclusive Security">Inclusive Security</option>
+                                    <option value="Waypoint">Waypoint</option>
+                                </select>
+                            </div>
+                            <div class="text-right">
+                                <button type="button" class="k-button cancel-object-creation"
+                                        name="cancel-geofence-creation"
+                                        data-phrase="Cancel" disabled>
+                                    Cancel
+                                </button>
+                                <button type="button" class="k-button confirm-object-creation"
+                                        name="confirm-geofence-creation"
+                                        data-phrase="Create geofence" disabled>
+                                    Create geofence
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    <!--<li class="mc-panel mc-panel-addresssearch hidden">-->
+    <!--<span class="mc-icon mc-icon-panel mc-icon-addresssearch"></span>-->
+    <!--<span class="mc-panel-name" data-phrase="Address Search">Address Search</span>-->
+    <!--</li>-->
+</ul>
